@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: indexMonografia.aux
+The style file: abnt-alf.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: abnt-options.bib
+Database file #2: abnt-uefs.bib
+Warning--I didn't find a database entry for "call=authordata"
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
++---------------------------------------------------------+
+| Estilo bibliografico abnt-alf.bst versao 1.52           |
+| Implementa a NBR6023, NBR10520 e NBR10523               |
+| Em caso de duvidas ou problemas com este estilo procure |
+| http://abntex.codigolivre.org.br                        |
++---------------------------------------------------------+
+You've used 17 entries,
+            6523 wiz_defined-function locations,
+            1248 strings with 11842 characters,
+and the built_in function-call counts, 12185 in all, are:
+= -- 1065
+> -- 399
+< -- 11
++ -- 196
+- -- 122
+* -- 824
+:= -- 1559
+add.period$ -- 55
+call.type$ -- 21
+change.case$ -- 145
+chr.to.int$ -- 27
+cite$ -- 11
+duplicate$ -- 458
+empty$ -- 1073
+format.name$ -- 565
+if$ -- 3060
+int.to.chr$ -- 5
+int.to.str$ -- 3
+missing$ -- 259
+newline$ -- 62
+num.names$ -- 55
+pop$ -- 318
+preamble$ -- 1
+purify$ -- 65
+quote$ -- 0
+skip$ -- 912
+stack$ -- 1
+substring$ -- 430
+swap$ -- 206
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 82
+width$ -- 0
+write$ -- 184
+(There was 1 warning)

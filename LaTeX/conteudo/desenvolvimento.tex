@@ -1,0 +1,54 @@
+\chapter{Desenvolvimento (Alterar Nome) }
+\label{chap:desenvolvimento}
+
+Aqui entra o desenvolvimento real do trabalho com as principais técnicas de otimização
+
+\section{Redução de espaço}
+Falar sobre como reduzir espaço na DP.
+Pode usar os seguintes problemas para explicar:
+\begin{itemize}
+	\item https://www.urionlinejudge.com.br/judge/pt/problems/view/1224
+	\item https://www.urionlinejudge.com.br/judge/pt/problems/view/1545
+	\item https://www.urionlinejudge.com.br/judge/pt/problems/view/1700
+\end{itemize}
+
+\section{Estrutura de dados RMQ}
+
+Dado um array com $n$ elementos, onde em cada posição $i$ possui um valor $Xi$ que representa o salto máximo que pode ser feito naquela posição. Qual a menor quantidade de saltos para sair da posição 0 e chegar em $n-1$ ?
+
+\begin{equation}
+dp[i] = 
+\begin{cases}
+0 &\text{se } i = n \\
+min(dp[j] + 1)_{i < j \leq i + X[i]} &\text{se } i \neq n
+
+\end{cases}
+\end{equation}
+
+Complexidade é $O(n^2)$, mas se usar uma Segment tree, por exemplo, poderá ficar $O(n*logn)$
+
+\section{Divide and Conquer Optimization}
+Problemas:
+
+\begin{itemize}
+	\item Kattis Branch Assignment WF 2016
+\end{itemize}
+
+\section{Knuth Optimization}
+Problemas:
+\begin{itemize}
+	\item Codechef = CHEFAOR
+	\item URI 2475
+\end{itemize}
+
+\section{Convex Hull Trick}
+Problemas:
+\begin{itemize}
+	\item URI 2481
+\end{itemize}
+
+\section{Lagrange optimization}
+Problemas:
+\begin{itemize}
+	\item IOI2016 Aliens
+\end{itemize}

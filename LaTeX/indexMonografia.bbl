@@ -1,0 +1,90 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.52 }
+
+\bibitem[Cormen \emph{et al.} 2009]{Cormen09a}
+\abntrefinfo{Cormen \emph{et al.}}{CORMEN \emph{et al.}}{2009}
+{CORMEN, T.~H. \emph{et al.} \textbf{Introduction to Algorithms}.
+  Favoritenstrasse 9/4th Floor/1863: The MIT Press, 2009.}
+
+\bibitem[Hom 2013]{LiveScience2013}
+\abntrefinfo{Hom}{HOM}{2013}
+{HOM, E.~J. \textbf{What is the Fibonacci Sequence?} 2013.
+Dispon{\'\i}vel em:
+  $<$http://www.livescience.com/37470-fibonacci-sequence.html$>$. Acesso em: 02
+  abr. 2017.}
+
+\bibitem[Papp-Varga, Szlávi \& Zsakó 2008]{teachingapplicationslanguages}
+\abntrefinfo{Papp-Varga, Szlávi \& Zsakó}{PAPP-VARGA; SZLáVI; ZSAKó}{2008}
+{PAPP-VARGA, Z.; SZLáVI, P.; ZSAKó, L. Ict teaching methods – programming
+  languages. In:  \textbf{Annales Mathematicae et Informaticae 35}. [s.n.],
+  2008. p. 163--172. Dispon{\'\i}vel em:
+  $<$https://www.researchgate.net/publication/228955901$>$.}
+
+\bibitem[Pears \emph{et al.} 2007]{Pears:2007:SLT:1345443.1345441}
+\abntrefinfo{Pears \emph{et al.}}{PEARS \emph{et al.}}{2007}
+{PEARS, A. \emph{et al.} A survey of literature on the teaching of introductory
+  programming. In:  \textbf{Working Group Reports on ITiCSE on Innovation and
+  Technology in Computer Science Education}. New York, NY, USA: ACM, 2007.
+  (ITiCSE-WGR '07), p. 204--223. Dispon{\'\i}vel em:
+  $<$http://doi.acm.org/10.1145/1345443.1345441$>$.}
+
+\bibitem[Perrett 2010]{Perrett2010}
+\abntrefinfo{Perrett}{PERRETT}{2010}
+{PERRETT, D. \textbf{CompSci 101 - Big-O Notation}. 2010.
+Dispon{\'\i}vel em:
+  $<$http://www.daveperrett.com/articles/2010/12/07/comp-sci-101-big-o-notation/$>$.
+  Acesso em: 23 abr. 2017.}
+
+\bibitem[Radošević, Orehovački \& Lovrenčić 2009]{newapproach}
+\abntrefinfo{Radošević, Orehovački \& Lovrenčić}{RADOšEVIć; OREHOVAčKI;
+  LOVRENčIć}{2009}
+{RADOšEVIć, D.; OREHOVAčKI, T.; LOVRENčIć, A. New approaches and tools in
+  teaching programming.
+2009.
+Dispon{\'\i}vel em: $<$https://www.researchgate.net/publication/224930648$>$.}
+
+\bibitem[Robins, Rountree \& Rountree 2003]{doi:10.1076/csed.13.2.137.14200}
+\abntrefinfo{Robins, Rountree \& Rountree}{ROBINS; ROUNTREE; ROUNTREE}{2003}
+{ROBINS, A.; ROUNTREE, J.; ROUNTREE, N. Learning and teaching programming: A
+  review and discussion.
+\textbf{Computer Science Education}, v.~13, n.~2, p. 137--172, 2003.
+Dispon{\'\i}vel em:
+  $<$http://www.tandfonline.com/doi/abs/10.1076/csed.13.2.137.14200$>$.}
+
+\bibitem[Schwartz 2011]{Schwartz2011}
+\abntrefinfo{Schwartz}{SCHWARTZ}{2011}
+{SCHWARTZ, H.~R. \textbf{Memoization using Closures}. 2011.
+Dispon{\'\i}vel em:
+  $<$https://harryrschwartz.com/2011/01/06/memoization-using-closures.html$>$.
+  Acesso em: 02 abr. 2017.}
+
+\bibitem[Szlávi \& Zsakó 2003]{methods}
+\abntrefinfo{Szlávi \& Zsakó}{SZLáVI; ZSAKó}{2003}
+{SZLáVI, P.; ZSAKó, L. Methods of teaching programming.
+2003.
+Dispon{\'\i}vel em: $<$https://www.researchgate.net/publication/235925815$>$.}
+
+\bibitem[Vihavainen, Paksula \& Luukkainen
+  2011]{Vihavainen:2011:EAM:1953163.1953196}
+\abntrefinfo{Vihavainen, Paksula \& Luukkainen}{VIHAVAINEN; PAKSULA;
+  LUUKKAINEN}{2011}
+{VIHAVAINEN, A.; PAKSULA, M.; LUUKKAINEN, M. Extreme apprenticeship method in
+  teaching programming for beginners. In:  \textbf{Proceedings of the 42Nd ACM
+  Technical Symposium on Computer Science Education}. New York, NY, USA: ACM,
+  2011.  (SIGCSE '11), p. 93--98.
+ISBN 978-1-4503-0500-6. Dispon{\'\i}vel em:
+  $<$http://doi.acm.org/10.1145/1953163.1953196$>$.}
+
+\bibitem[Zsakó \& Nóra 2008]{teachingapplications}
+\abntrefinfo{Zsakó \& Nóra}{ZSAKó; NóRA}{2008}
+{ZSAKó, L.; NóRA, C. Ict teaching methods applications. In:
+  \textbf{Mittermeir R., Syslo M. (eds.) Informatics Education contributing
+  across the curriculum, proc. of selected papers - 3rd ISSEP conference}.
+  [s.n.], 2008. p. 47--53. Dispon{\'\i}vel em:
+  $<$https://www.researchgate.net/publication/235925718$>$.}
+
+\end{thebibliography}

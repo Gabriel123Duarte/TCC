@@ -1,0 +1,152 @@
+\documentclass{abnt-uefs} % Classe de formatação da UEFS
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[call=authordata,alf,abnt-emphasize=bf,abnt-etal-text=emph,abnt-and-type=&,abnt-etal-list=3,abnt-etal-cite=3,recuo=0.0cm]{abntcite}
+\usepackage[brazil]{babel}
+\usepackage{mathptmx}
+\usepackage[pdftex]{graphicx}
+%\usepackage[small,bf]{caption}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+%\usepackage{textcomp}
+%\usepackage{textcase} 
+\usepackage{float} % para as figuras ficarem onde foram colocadas no latex - deve colcoar na figura [H]
+\usepackage{color}
+%\usepackage{url}
+\usepackage{nameref}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{amsmath}
+
+%Gambiarra das imagens
+\usepackage{placeins}
+
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+
+%Tirar negrito do título das imagens
+
+
+% Colocar links nos capítulos
+%\usepackage{hyperref}
+%\hypersetup{
+%	colorlinks=true, %set true if you want colored links
+%	linktoc=all,     %set to all if you want both sections and subsections linked
+%	linkcolor=blue,  %choose some color if you want links to stand out
+%}
+%\makeatletter
+%\newcommand*{\updatelabelname}[1]{% For correcting \@currentlabelname, if needed
+%	\xdef\@currentlabelname{#1}}
+%\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configuração de código fonte
+% Colorido
+\usepackage{color}
+\usepackage{bold-extra}
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+	language=c++, % Replace
+	basicstyle={\footnotesize\ttfamily},
+	keywordstyle={\bfseries\color{blue}},
+	commentstyle=\color{dkgreen},
+	stringstyle={\slshape\color{mauve}},
+	numberstyle=\footnotesize,
+	numbers=left,
+	showstringspaces=false,
+	breaklines=true,
+	tabsize=4,
+	frame=tb
+}
+
+\renewcommand{\lstlistingname}{Algoritmo}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de \lstlistingname s}
+\makeatletter
+\renewcommand{\l@lstlisting}[2]{%
+	%\@dottedtocline{1}{0em}{1.5em}{\lstlistingname\ #1}{#2}%
+	\leftskip 3.1em
+	\rightskip 1.6em
+	\parfillskip -\rightskip
+	\parindent 0em
+	\@tempdima 2.0em
+	\advance\leftskip \@tempdima \nobreak\hskip -\leftskip %%Tinha \null\nobreak\..
+	{Algoritmo \normalfont #1}\nobreak \tabfillnum{#2}
+	
+}
+\makeatother
+
+
+			
+% Preto e branco
+%\usepackage{xcolor}
+%\usepackage{bold-extra}
+%
+%\usepackage{listings}
+%\lstset{
+%	language=c, %Replace
+%	basicstyle={\footnotesize\ttfamily},
+%	keywordstyle=\bfseries,
+%	commentstyle=\color{black!75},
+%	stringstyle=\slshape,
+%	numberstyle=\footnotesize,
+%	numbers=left,
+%	showstringspaces=false,
+%	breaklines=true,
+%	tabsize=4,
+%	frame=tb
+%}
+
+
+
+\graphicspath{{./figuras/}} % Diretório padrão de figuras.
+\input{pretextuais/capa} % Elementos da capa
+\begin{document}	
+	% Numeração de algoritmos e equações
+	\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+	\renewcommand{\theequation}{\arabic{equation}}		
+	
+	
+    \pagestyle{empty}
+    \DeclareGraphicsExtensions{.jpg,.pdf,.mps,.png,.bmp,.eps}
+    \capa % geração automática da capa
+    \folhaderosto % geração automática da folha de rosto
+    \termodeaprovacao % geração automática do termo de aprovação
+    \input{pretextuais/dedicatoria}
+    \input{pretextuais/agradecimentos}
+    \input{pretextuais/epigrafe}
+    \listadefiguras % geracao automatica da lista de figuras
+    \listadetabelas % geracao automatica da lista de tabelas
+    \listadesimbolos % geracao automatica da lista de símbolos
+    \listadesiglas % % geracao automatica da lista de siglas
+    \lstlistoflistings  % % geracao automatica da lista de algoritmos
+
+    \input{pretextuais/resumo}
+    \input{pretextuais/abstract}
+    % sumario
+    \sumario % geracao automatica do sumario
+    \input{conteudo/introducao}
+    \input{conteudo/fundamentacao}
+    \input{conteudo/historico}    
+    \input{conteudo/metodologia}
+    \input{conteudo/desenvolvimento}
+    \input{conteudo/conclusao}
+    % Aqui começa a bibliografia da monografia
+    \bibliographystyle{abnt-alf}
+    \bibliography{abnt-uefs}
+    % Apêndice e Anexos
+    \apendice
+    %\input{postextuais/apendice}
+    \anexo
+    %\input{postextuais/anexo}
+    \autoria % geração automática do termo de aprovação
+\end{document} 
