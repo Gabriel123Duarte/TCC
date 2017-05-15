@@ -503,7 +503,7 @@
 
 \newcommand{\l@sigla}[2]
 {
-	\vspace{-0.75cm}
+	\vspace{0.0cm}
 	\leftskip 0em
 	\parindent 0em
 	\@tempdima 10em
