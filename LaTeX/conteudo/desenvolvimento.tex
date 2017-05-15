@@ -4,6 +4,35 @@
 Aqui entra o desenvolvimento real do trabalho com as principais técnicas de otimização
 
 \section{Redução de espaço}
+Dentre as otimizações disponíveis, as que envolvem redução de memória são as mais simples de serem aplicadas, seu uso pode ser facilmente entendido no problema da mochila \footnote{http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/}. Esse problema deseja maximar o valor dos itens colocados em uma mochila, onde estes possuem um valor e um peso associado, enquanto a mochila possui uma capacidade máxima de peso. Além disso, nenhum item pode ser dividido.  
+
+\begin{equation}
+dp[i][j] = 
+\begin{cases}
+0 &\text{se } i = 0 \text{ ou } j = 0,\\
+max(valor[i-1] + dp[i-1][j-peso[i-1]], dp[i-1][j]) &\text{se } peso[i-1] \leq{j},\\
+dp[i-1][j] &\text{se } peso[i-1] > j
+\end{cases}
+\label{eq:knapsack}
+\end{equation}
+
+O problema da mochila pode ser resolvido através da relação de recorrência apresentada acima, onde $dp[i][j]$ representa o valor máximo que pode se conseguir ao colocar os $i$-ésimos primeiros itens em uma mochila de capacidade $j$. Os vetores $valor$ e $peso$, representam o valor e peso associado a cada um dos $n$ itens, respectivamente. A resposta para o problema estará em $dp[n][capacidade]$.
+
+Analisando a complexidade da equação \ref{eq:knapsack} é fácil ver que será necessário $O(n*capacidade)$, tanto de memória, quanto de tempo. Porém, é notório que para solucionar a linha $i$ da matriz de programação dinâmica, só são necessárias as respostas que já foram calculadas na linha $i - 1$, portanto podemos trabalhar apenas com duas linhas consecutivas da matriz, sempre alternando entre linha par e ímpar. 
+
+\begin{equation}
+dp[i\&1][j] = 
+\begin{cases}
+0 &\text{se } i = 0 \text{ ou } j = 0,\\
+
+max(valor[i-1] + dp[\text{\textasciitilde}i\&1][j-peso[i-1]], dp[\text{\textasciitilde}i\&1][j]) &\text{se } peso[i-1] \leq{j},\\
+dp[\text{\textasciitilde}i\&1][j] &\text{se } peso[i-1] > j
+\end{cases}
+\label{eq:knapsackmemorialinear}
+\end{equation}
+
+A equação \ref{eq:knapsackmemorialinear} demostra como reduzir a memória. Os valores que serão utilizados nas linhas da DP serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade de $O(capacidade)$. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
+
 Falar sobre como reduzir espaço na DP.
 Pode usar os seguintes problemas para explicar:
 \begin{itemize}
@@ -47,8 +76,3 @@ Problemas:
 	\item URI 2481
 \end{itemize}
 
-\section{Lagrange optimization}
-Problemas:
-\begin{itemize}
-	\item IOI2016 Aliens
-\end{itemize}

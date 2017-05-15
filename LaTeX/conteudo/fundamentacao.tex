@@ -122,38 +122,24 @@ Ao utilizar programação dinâmica para otimizar um problema, normalmente ocorr
 
 Para utilizar uma técnica de otimização de programação dinâmica, alguns critérios em relação a função de recorrência devem ser correspondidos. Cada técnica tem uma abordagem que possibilita a resolução de um conjunto de problemas que compartilham certas propriedades.
 
-\textcolor{red}{Gostei do exemplo! Só adaptaria um pouco o texto, para deixar claro que você só está dando UM exemplo, para ilustrar o que seriam otimizações. Como está, parece que você já vai começar a explicar todas as otimizações.}
+A tabela \ref{tab:otimizacoes} ilustra algumas formas otimizações existentes, que possibilitam tanto na redução de espaço, quanto de tempo. Estas técnicas serão discutidas no capítulo \ref{chap:desenvolvimento}.
 
-Dentre as otimizações disponíveis, as que envolvem redução de memória são as mais simples de serem aplicadas, seu uso pode ser facilmente entendido no problema da mochila \footnote{http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/}. Esse problema deseja maximar o valor dos itens colocados em uma mochila, onde estes possuem um valor e um peso associado, enquanto a mochila possui uma capacidade máxima de peso. Além disso, nenhum item pode ser dividido.  
-
-\begin{equation}
-dp[i][j] = 
-\begin{cases}
-0 &\text{se } i = 0 \text{ ou } j = 0,\\
-max(valor[i-1] + dp[i-1][j-peso[i-1]], dp[i-1][j]) &\text{se } peso[i-1] \leq{j},\\
-dp[i-1][j] &\text{se } peso[i-1] > j
-\end{cases}
-\label{eq:knapsack}
-\end{equation}
-
-O problema da mochila pode ser resolvido através da relação de recorrência apresentada acima, onde $dp[i][j]$ representa o valor máximo que pode se conseguir ao colocar os $i$-ésimos primeiros itens em uma mochila de capacidade $j$. Os vetores $valor$ e $peso$, representam o valor e peso associado a cada um dos $n$ itens, respectivamente. A resposta para o problema estará em $dp[n][capacidade]$.
- 
-Analisando a complexidade da equação \ref{eq:knapsack} é fácil ver que será necessário $O(n*capacidade)$, tanto de memória, quanto de tempo. Porém, é notório que para solucionar a linha $i$ da matriz de programação dinâmica, só são necessárias as respostas que já foram calculadas na linha $i - 1$, portanto podemos trabalhar apenas com duas linhas consecutivas da matriz, sempre alternando entre linha par e ímpar. 
-
-\begin{equation}
-dp[i\&1][j] = 
-\begin{cases}
-0 &\text{se } i = 0 \text{ ou } j = 0,\\
-
-max(valor[i-1] + dp[\text{\textasciitilde}i\&1][j-peso[i-1]], dp[\text{\textasciitilde}i\&1][j]) &\text{se } peso[i-1] \leq{j},\\
-dp[\text{\textasciitilde}i\&1][j] &\text{se } peso[i-1] > j
-\end{cases}
-\label{eq:knapsackmemorialinear}
-\end{equation}
-
-A equação \ref{eq:knapsackmemorialinear} demostra como reduzir a memória. Os valores que serão utilizados nas linhas da DP serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade de $O(capacidade)$. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
-
-No capítulo \ref{chap:desenvolvimento} serão apresentadas diversas técnicas, que poderão ser utilizadas tanto para redução de memória, quanto na redução de tempo de execução.
+\begin{table}[H]
+	\centering
+	\caption[Otimizações de programação dinâmica]{Otimizações de programação dinâmica}
+	\label{tab:otimizacoes}
+	\begin{tabular}{p{4cm} | p{11cm}}
+		\hline \SPACE
+		\textbf{Nome/Tipo} & \textbf{Característica} \\ \hline \SPACE
+		Redução de espaço &  Reduz a quantidade de memória necessária quando um estado depende de uma quantidade fixa de outros estados \\ \hline \SPACE
+		Estrutura de dados &  Reduz a complexidade de tempo com o auxílio de uma estrutura de dados que consegue responder a consultas do tipo mínimo ou máximo em um intervalo de uma \textit{array}  \\ \hline \SPACE
+		\textit{Divide and Conquer} & Realiza divisão e conquista para encontrar o ponto ótimo necessário para se resolver o estado atual, reduzindo a complexidade temporal \\ \hline \SPACE
+		\textit{Knuth Optimization} & Utiliza informações de onde estava a solução ótima de um estado anterior para diminuir o espaço de busca dos outros, assim reduzindo a complexidade temporal  \\ \hline \SPACE
+		\textit{Convex Hull Trick} & Através de conceitos geométricos, essa técnica possibilita a redução da complexidade temporal \\ \hline 
+	\end{tabular}
+	
+	\fonte{Pr\'oprio Autor.}
+\end{table}
 
 \section{Ensino de algoritmos}
 \label{sec:ensino}

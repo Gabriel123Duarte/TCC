@@ -4,12 +4,12 @@
 \contentsline {section}{\numberline {2.1}\MakeUppercase {Complexidade de Algoritmos}}{13}
 \contentsline {section}{\numberline {2.2}\MakeUppercase {Programa\IeC {\c c}\IeC {\~a}o din\IeC {\^a}mica}}{14}
 \contentsline {subsection}{\numberline {2.2.1}Otimiza\IeC {\c c}\IeC {\~o}es}{17}
-\contentsline {section}{\numberline {2.3}\MakeUppercase {Ensino de algoritmos}}{18}
+\contentsline {section}{\numberline {2.3}\MakeUppercase {Ensino de algoritmos}}{17}
 \contentsline {subsection}{\numberline {2.3.1}New Approaches and Tools in Teaching Programming}{18}
 \contentsline {subsection}{\numberline {2.3.2}ICT Teaching Methods \IeC {\textendash } Applications}{18}
-\contentsline {subsection}{\numberline {2.3.3}ICT Teaching Methods \IeC {\textendash } Programming Languages}{19}
-\contentsline {subsection}{\numberline {2.3.4}A Survey of Literature on the Teaching of Introductory Programming}{19}
-\contentsline {subsection}{\numberline {2.3.5}Learning and Teaching Programming: A Review and Discussion}{19}
+\contentsline {subsection}{\numberline {2.3.3}ICT Teaching Methods \IeC {\textendash } Programming Languages}{18}
+\contentsline {subsection}{\numberline {2.3.4}A Survey of Literature on the Teaching of Introductory Programming}{18}
+\contentsline {subsection}{\numberline {2.3.5}Learning and Teaching Programming: A Review and Discussion}{18}
 \contentsline {subsection}{\numberline {2.3.6}Extreme Apprenticeship Method in Teaching Programming for Beginners}{19}
 \contentsline {subsection}{\numberline {2.3.7}Methods of teaching programming}{19}
 \contentsline {chapter}{\numberline {3}\MakeUppercase {Hist\IeC {\'o}rico e trabalhos relacionados}}{20}
@@ -17,11 +17,10 @@
 \contentsline {chapter}{\numberline {4}\MakeUppercase {Metodologia}}{21}
 \contentsline {chapter}{\numberline {5}\MakeUppercase {Desenvolvimento (Alterar Nome) }}{22}
 \contentsline {section}{\numberline {5.1}\MakeUppercase {Redu\IeC {\c c}\IeC {\~a}o de espa\IeC {\c c}o}}{22}
-\contentsline {section}{\numberline {5.2}\MakeUppercase {Estrutura de dados RMQ}}{22}
-\contentsline {section}{\numberline {5.3}\MakeUppercase {Divide and Conquer Optimization}}{22}
-\contentsline {section}{\numberline {5.4}\MakeUppercase {Knuth Optimization}}{22}
-\contentsline {section}{\numberline {5.5}\MakeUppercase {Convex Hull Trick}}{22}
-\contentsline {section}{\numberline {5.6}\MakeUppercase {Lagrange optimization}}{23}
+\contentsline {section}{\numberline {5.2}\MakeUppercase {Estrutura de dados RMQ}}{23}
+\contentsline {section}{\numberline {5.3}\MakeUppercase {Divide and Conquer Optimization}}{23}
+\contentsline {section}{\numberline {5.4}\MakeUppercase {Knuth Optimization}}{23}
+\contentsline {section}{\numberline {5.5}\MakeUppercase {Convex Hull Trick}}{23}
 \contentsline {chapter}{\numberline {6}\MakeUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{24}
 \contentsline {section}{\numberline {6.1}\MakeUppercase {Conclus\IeC {\~o}es}}{24}
 \contentsline {section}{\numberline {6.2}\MakeUppercase {Trabalhos Futuros}}{24}
