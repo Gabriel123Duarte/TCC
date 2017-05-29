@@ -96,20 +96,16 @@ int fib(int i){
 
 Para otimizar o código e utilizar programação dinâmica basta incluir uma tabela que salva todos os estados. Sua inclusão faz uma alteração mínima no código, como é mostrado no algoritmo \ref{lst:fibpd}.
 
-\textcolor{red}{Encontrar uma melhor forma de apresentar o novo código, mostrando as principais mudanças feitas para transformar o Algoritmo 1 no Algoritmo 2}
 
 \begin{lstlisting}[caption={Implementação Fibonacci com programação dinâmica},label={lst:fibpd}]
-#define MAX 20 // Valor maximo que sera consultado na funcao fib(i)
-int tabela[MAX + 1]; // Tabela que guarda a resposta dos estados
-					 // Inicialmente todos elementos recebem um valor nulo
-					 // Para o problema do Fibonacci o valor nulo pode ser -1
-					 
+#define MAX 20 
+int tabela[MAX + 1]; 
+					 					 
 int fib(int i){
-	if(tabela[i] != -1) // Verifica se ja foi calculado esse estado
+	if(tabela[i] != -1) 
 		return tabela[i];
 	if(i <= 1)
 		return tabela[i] = i;
-	// Resolve o estado, salva na tabela e o retorna
 	return tabela[i] = fib(i - 1) + fib(i - 2);
 }
 \end{lstlisting}
@@ -144,40 +140,30 @@ A tabela \ref{tab:otimizacoes} ilustra algumas formas otimizações existentes, 
 \section{Ensino de algoritmos}
 \label{sec:ensino}
 
-Nesta seção, são apresentados trabalhos que demostram alguns estudos de como construir um material didático, ou realizar o ensino de programação, que têm relação com o que neste está sendo desenvolvido. Dentre eles, é dada uma maior atenção aos que são apresentados nas subseções \ref{subsec:vihavainen} e \ref{subsec:methods}, pois estes apresentam metodologias que mais se adequam na proposta deste trabalho. 
+O ensino de algoritmos, por se tratar de assuntos que normalmente não são tão simples, com um fundamentação matemática extensa, não é uma tarefa fácil, portanto foi feita uma busca na literatura de trabalhos que têm por objetivo criar uma metodologia de ensino. Assim servindo de modelo para o que está aqui sendo desenvolvido.
 
 
-\subsection{New Approaches and Tools in Teaching Programming} \nocite{newapproach}
+\cite{methods}
+Neste trabalho é apresentado diversas metodologias relacionadas ao ensino de programação. O autor discuti sobre alguns modelos e exemplifica quando e para qual nível de estudante cada método será mais proveitoso ao ser aplicado. Estes métodos determinam a forma de estruturar o curso que deseja ser ensinado e a maneira de explicar os conteúdos.
 
-Se propõe em criar uma ferramenta que facilite o aprendizado de linguagens de programação básicas, como C++, ao invés da utilização de\sigla{IDE}{Integrated Development Environment}(do inglês, \textit{Integrated Development Environment}). A finalidade desta ferramenta é ajudar os estudantes em não cometer erros que são comuns a quem está iniciando. Além disso, oferecer uma forma mais simples do professor auxiliar seus alunos.
+\cite{doi:10.1076/csed.13.2.137.14200} Uma ampla pesquisa na literatura com o foco na parte educacional do estudo de programação foi feita. Diversos métodos e tópicos foram identificados e analisados para poder ser realizado uma classificação, e assim, auxiliar os professores a identificar em seus alunos características comuns e padrões, que poderão ser contornados com base no que já foi realizado e está documentado na literatura.
 
-\subsection{ICT Teaching Methods – Applications} \nocite{teachingapplications}
-
-Realiza uma análise nos principais métodos e aplicações que auxiliam no aprendizado e no ensino dos tópicos de\sigla{ICT}{Information and Communication Technology}(do inglês, \textit{Information and Communication Technology}). Para cada método é exemplificado o seu funcionamento, como realizar a sua aplicação e para qual nível de estudante ele é mais apropriado. 
-
-
-\subsection{ICT Teaching Methods – Programming Languages} \nocite{teachingapplicationslanguages}
-
-Neste trabalho é feita uma análise semelhante a que foi realizada no trabalho apresentado na subseção anterior. Porém, o foco deste é o ensino de uma linguagem de programação, portanto os métodos apresentados demostram os passos ideais para transmitir os conceitos da linguagem proposta.
-
-\subsection{A Survey of Literature on the Teaching of Introductory Programming} \nocite{Pears:2007:SLT:1345443.1345441}
- Foi desenvolvido um \textit{survey} que reúne algumas formas da literatura de ensinar a introdução de programação. Além disso, os trabalhos reunidos, foram classificados e agrupados pela forma de ensino e pelos métodos aplicados.
-
-\subsection{Learning and Teaching Programming: A Review	and Discussion} \nocite{doi:10.1076/csed.13.2.137.14200} 
-Uma ampla pesquisa na literatura com o foco na parte educacional do estudo de programação foi feita. Diversos métodos e tópicos foram identificados e analisados para poder ser realizado uma classificação, e assim, auxiliar os professores a identificar em seus alunos características comuns e padrões, que poderão ser contornados com base no que já foi realizado e está documentado na literatura.
-
-\subsection{Extreme Apprenticeship Method in Teaching Programming for Beginners} \nocite{Vihavainen:2011:EAM:1953163.1953196}
-\label{subsec:vihavainen}
-Fala sobre como ensinar o básico de programação para quem está começando, ele propõe um modelo de ensino e mostra como esse método foi aplicado ao curso de ciência da computação.
-
-\subsection{Methods of teaching programming} 
-\nocite{methods}
-\label{subsec:methods}
- Apresenta algumas metodologias de ensino de programação, mostrando quando e para qual nível de aluno cada metodologia pode ser aplicada. Estes métodos determinam a forma de estruturar o curso que deseja ser ensinado. 
-
-	\textbf{Specification oriented:} Segundo o autor esse é um método adequado para quem tem uma base matemática e que está no 4º ou 5º ano de graduação. Este utiliza bastante a matemática, teoremas e algoritmos rígidos que são derivados diretamente da definição. 
+\cite{Pears:2007:SLT:1345443.1345441}
+Foi desenvolvido um \textit{survey} que reúne algumas formas da literatura de ensinar a introdução de programação. Além disso, os trabalhos reunidos, foram classificados e agrupados pela forma de ensino e pelos métodos aplicados.
 
 
+
+\cite{teachingapplications} Realiza uma análise nos principais métodos e aplicações que auxiliam no aprendizado e no ensino dos tópicos de\sigla{ICT}{Information and Communication Technology}(do inglês, \textit{Information and Communication Technology}). Para cada método é exemplificado o seu funcionamento, como realizar a sua aplicação e para qual nível de estudante ele é mais apropriado. 
+
+
+\cite{teachingapplicationslanguages} Neste trabalho é feita uma análise semelhante a que foi realizada no trabalho apresentado na subseção anterior. Porém, o foco deste é o ensino de uma linguagem de programação, portanto os métodos apresentados demostram os passos ideais para transmitir os conceitos da linguagem proposta.
+
+\cite{newapproach} Se propõe em criar uma ferramenta que facilite o aprendizado de linguagens de programação básicas, como C++, ao invés da utilização de\sigla{IDE}{Integrated Development Environment}(do inglês, \textit{Integrated Development Environment}). A finalidade desta ferramenta é ajudar os estudantes em não cometer erros que são comuns a quem está iniciando. Além disso, oferecer uma forma mais simples do professor auxiliar seus alunos.
+
+\cite{Vihavainen:2011:EAM:1953163.1953196}
+Neste trabalho é discutido como ensinar o básico de programação para quem está começando. O autor propõe um modelo de ensino e faz a aplicação deste em uma turma de um curso de ciência da computação. Ao final do trabalho é feito um comparativo entre uma turma que utilizou da metodologia proposta e uma que não usou, e os resultados foram positivos, mostrando que a quantidade de evasão e reprovação foram reduzidos.
+
+Apesar de existirem diversos trabalhos que tratam sobre o ensino de algoritmos e programação, todos os encontrados têm um foco para um nível básico de conhecimento, levando em conta alunos que estão iniciando nesta área, portanto, não será aplicado nenhum deste diretamente. No capítulo \ref{chap:metodo} será discutido a metodologia elaborada para a construção do trabalho.
  
 
 
