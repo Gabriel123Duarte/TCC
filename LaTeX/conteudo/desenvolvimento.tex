@@ -33,28 +33,90 @@ dp[\text{\textasciitilde}i\&1][j] &\text{se } peso[i-1] > j
 
 A equação \ref{eq:knapsackmemorialinear} demostra como reduzir a memória. Os valores que serão utilizados nas linhas da DP serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade de $O(capacidade)$. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
 
-Falar sobre como reduzir espaço na DP.
-Pode usar os seguintes problemas para explicar:
-\begin{itemize}
-	\item https://www.urionlinejudge.com.br/judge/pt/problems/view/1224
-	\item https://www.urionlinejudge.com.br/judge/pt/problems/view/1545
-	\item https://www.urionlinejudge.com.br/judge/pt/problems/view/1700
-\end{itemize}
+O seguinte código mostra a implementação do problema da mochila com memória linear.
+\begin{lstlisting}[caption={Implementação Mochila},label={lst:lis}]
+
+int mochila(){
+	int valor[] = {60, 100, 120};
+	int peso[]  = {10, 20, 30};
+	int capacidade = 50, n = 3;
+	
+	int dp[2][capacidade + 1];
+	for(int i = 0; i <= n; i++){
+		for(int j = 0; j <= capacidade; j++){
+			if(!i || !j)
+				dp[i&1][j] = 0;
+			else if(peso[i - 1] <= j)
+				dp[i&1][j] = max(valor[i-1] + dp[~i&1][j-peso[i-1]],
+				                 dp[~i&1][j]);
+			else
+				dp[i&1][j] = dp[~si&1][j];
+		}
+	}
+	return dp[n&1][capacidade]; 
+}
+\end{lstlisting}
 
 \section{Estrutura de dados RMQ}
 
-Dado um array com $n$ elementos, onde em cada posição $i$ possui um valor $Xi$ que representa o salto máximo que pode ser feito naquela posição. Qual a menor quantidade de saltos para sair da posição 0 e chegar em $n-1$ ?
+Um dos problemas clássicos de programação dinâmica é o\sigla{LIS}{Longest Increasing Subsequence}(do inglês, \textit{Longest Increasing Subsequence}). Neste, o objetivo é encontrar a maior subsequência de um \textit{array} onde todos os elementos estão ordenados de forma crescente.
+
+Imaginemos o seguinte \textit{array}:
+
+\begin{center}
+	${2, 5, 3, 7, 11, 8}$
+\end{center}
+
+Uma das solução para este conjunto é a subsequência ${2, 3, 7, 8}$, que possui tamanho quatro.
+
+Para resolver este problema pode ser usado programação dinâmica com a seguinte recorrência:
 
 \begin{equation}
 dp[i] = 
 \begin{cases}
-0 &\text{se } i = n \\
-min(dp[j] + 1)_{i < j \leq i + X[i]} &\text{se } i \neq n
+1 &\text{se } i = 0 \\
+max(dp[j] + 1)_{0 \leq j < i} &\text{se } i \neq 0 \text{ e } v[j] \leq v[i]
 
 \end{cases}
+\label{eq:lisQuadrado}
 \end{equation}
 
-Complexidade é $O(n^2)$, mas se usar uma Segment tree, por exemplo, poderá ficar $O(n*logn)$
+A equação \ref{eq:lisQuadrado}, resolve o problema do LIS, com a complexidade $O(n^2)$ de tempo e $O(n)$ de memória, porém é notório que quando está sendo calculado a $dp[i]$, ou seja, a maior LIS que termina no $i$-ésimo índice, está sendo percorrido todos elementos do $array$ que estão a esquerda e que possuem um valor menor ou igual que o elemento atual. Em outras palavras, queremos o maior elemento da $dp$ que seu valor está no intervalo $[0..v[i]]$.
+
+A partir destas observações podemos melhorar a complexidade dessa solução com o auxílio de uma estrutura de dados que consegue consultar máximo ou mínimo de intervalo de um $array$ de forma mais eficiente. Pode ser ela uma $Segment Tree$\footnote{http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/} ou $BIT$\footnote{http://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/}, com isso é possível remover a busca linear no \textit{array} pelo maior elemento e trocar por uma busca logarítmica, deixando a solução final com $O(n*logn)$.
+
+O código a seguir mostra uma maneira de implementar o LIS utilizando $BIT$.
+\begin{lstlisting}[caption={Implementação LIS},label={lst:lis}]
+
+#define MAXN 20
+int v[] = {2, 5, 3, 7, 11, 8};
+int bit[MAXN];
+int dp[MAXN];
+
+void update(int x, int v){
+	for(; x < MAXN; x+=x&-x)
+		bit[x] = max(bit[x], v);
+}
+
+int get(int x){
+	int ans = 0;
+	for(; x; x-=x&-x)
+		ans = max(ans, bit[x]);
+	return ans;
+}
+
+int lis(int n){
+	int ans = 0;
+	
+	for(int i = 0; i < n; i++){
+		dp[i] = 1+get(v[i]);
+		update(v[i], dp[i]);
+		ans = max(ans, dp[i]);
+	}
+	
+	return ans;
+}
+\end{lstlisting}
 
 \section{Divide and Conquer Optimization}
 Problemas:
