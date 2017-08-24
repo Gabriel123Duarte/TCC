@@ -5,16 +5,15 @@
 \contentsline {section}{\numberline {2.2}\MakeUppercase {Programa\IeC {\c c}\IeC {\~a}o din\IeC {\^a}mica}}{14}
 \contentsline {subsection}{\numberline {2.2.1}Otimiza\IeC {\c c}\IeC {\~o}es}{16}
 \contentsline {section}{\numberline {2.3}\MakeUppercase {Ensino de algoritmos}}{17}
-\contentsline {chapter}{\numberline {3}\MakeUppercase {Hist\IeC {\'o}rico e trabalhos relacionados}}{19}
-\contentsline {section}{\numberline {3.1}\MakeUppercase {Trabalhos Relacionados}}{19}
-\contentsline {chapter}{\numberline {4}\MakeUppercase {Metodologia}}{20}
-\contentsline {chapter}{\numberline {5}\MakeUppercase {Desenvolvimento (Alterar Nome) }}{21}
-\contentsline {section}{\numberline {5.1}\MakeUppercase {Redu\IeC {\c c}\IeC {\~a}o de espa\IeC {\c c}o}}{21}
-\contentsline {section}{\numberline {5.2}\MakeUppercase {Estrutura de dados RMQ}}{22}
-\contentsline {section}{\numberline {5.3}\MakeUppercase {Divide and Conquer Optimization}}{24}
-\contentsline {section}{\numberline {5.4}\MakeUppercase {Knuth Optimization}}{24}
-\contentsline {section}{\numberline {5.5}\MakeUppercase {Convex Hull Trick}}{24}
-\contentsline {chapter}{\numberline {6}\MakeUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{25}
-\contentsline {section}{\numberline {6.1}\MakeUppercase {Conclus\IeC {\~o}es}}{25}
-\contentsline {section}{\numberline {6.2}\MakeUppercase {Trabalhos Futuros}}{25}
-\contentsline {chapter}{REFER\^ENCIAS}{26}
+\contentsline {chapter}{\numberline {3}\MakeUppercase {Trabalhos relacionados}}{20}
+\contentsline {chapter}{\numberline {4}\MakeUppercase {Metodologia}}{21}
+\contentsline {chapter}{\numberline {5}\MakeUppercase {Desenvolvimento (Alterar Nome) }}{22}
+\contentsline {section}{\numberline {5.1}\MakeUppercase {Redu\IeC {\c c}\IeC {\~a}o de espa\IeC {\c c}o}}{22}
+\contentsline {section}{\numberline {5.2}\MakeUppercase {Estrutura de dados RMQ}}{23}
+\contentsline {section}{\numberline {5.3}\MakeUppercase {Divide and Conquer Optimization}}{25}
+\contentsline {section}{\numberline {5.4}\MakeUppercase {Knuth Optimization}}{25}
+\contentsline {section}{\numberline {5.5}\MakeUppercase {Convex Hull Trick}}{25}
+\contentsline {chapter}{\numberline {6}\MakeUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{26}
+\contentsline {section}{\numberline {6.1}\MakeUppercase {Conclus\IeC {\~o}es}}{26}
+\contentsline {section}{\numberline {6.2}\MakeUppercase {Trabalhos Futuros}}{26}
+\contentsline {chapter}{REFER\^ENCIAS}{27}
