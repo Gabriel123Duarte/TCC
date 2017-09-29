@@ -818,9 +818,9 @@
 
 \long\def\@makecaption#1#2{
 	\vskip\abovecaptionskip
-	\sbox\@tempboxa{{\captionfonts{#1: #2}}}%
+	\sbox\@tempboxa{{\captionfonts{#1 - #2}}}%
 	\ifdim \wd\@tempboxa >\hsize
-		{\captionfonts{#1: #2}\par}
+		{\captionfonts{#1 - #2}\par}
 	\else
 		\hbox to\hsize{\hfil\box\@tempboxa\hfil}%
 	\fi
@@ -833,7 +833,7 @@
 		\begin{spacing}{\taxaespacomeio}
 			\par
 		\end{spacing}
-		\centering\normalsize{Fonte: \normalfont#1}
+		\centering\small{Fonte: \normalfont#1}
 	\end{flushleft}
 }
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  18 SEP 2017 10:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  29 SEP 2017 09:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1444,18 +1444,44 @@ a aná-lise dos be-ne-fí-cios será feita
 ]
 Cap\'{\i }tulo 5.
 
-Overfull \hbox (1.35725pt too wide) detected at line 32
-\OML/ztmcm/m/it/12 dp\OT1/ztmcm/m/n/12 [\OML/ztmcm/m/it/12 i\OT1/ztmcm/m/n/12 &
-1][\OML/ztmcm/m/it/12 j\OT1/ztmcm/m/n/12 ] = []
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+
+ []
+
+
+Overfull \hbox (9.04799pt too wide) detected at line 21
+\OML/ztmcm/m/it/12 dp\OT1/ztmcm/m/n/12 [\OML/ztmcm/m/it/12 i\OT1/ztmcm/m/n/12 ]
+[\OML/ztmcm/m/it/12 j\OT1/ztmcm/m/n/12 ] = []
  []
 
 [22
 
-] [23] [24]) (./conteudo/conclusao.tex [25]
-Cap\'{\i }tulo 6.
-) (./indexMonografia.bbl [26
+]
+Underfull \hbox (badness 10000) in paragraph at lines 47--49
 
-]) [27
+ []
+
+
+Overfull \hbox (2.42328pt too wide) in paragraph at lines 68--69
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 113--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--119
+
+ []
+
+[24] [25]) (./conteudo/conclusao.tex [26]
+Cap\'{\i }tulo 6.
+) (./indexMonografia.bbl [27
+
+]) [28
 
 ] [1] 
 AED: lastpage setting LastPage
@@ -1463,31 +1489,48 @@ AED: lastpage setting LastPage
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
+
+! LaTeX Error: \begin{itemize} on input line 88 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.152 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 (./indexMonografia.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
- ) 
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 88 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 24053 strings out of 494929
- 448966 string characters out of 6180142
- 519140 words of memory out of 5000000
- 26813 multiletter control sequences out of 15000+600000
+ 24051 strings out of 494929
+ 448952 string characters out of 6180142
+ 524142 words of memory out of 5000000
+ 26811 multiletter control sequences out of 15000+600000
  50567 words of font info for 96 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 55i,13n,58p,10414b,1676s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/gabriel/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk>{/usr/s
-hare/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
-/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on indexMonografia.pdf (31 pages, 180806 bytes).
+ 55i,13n,58p,10414b,1755s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/gabriel/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000
+.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on indexMonografia.pdf (32 pages, 185202 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 196 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

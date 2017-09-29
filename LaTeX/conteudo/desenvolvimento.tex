@@ -1,11 +1,15 @@
 \chapter{Desenvolvimento (Alterar Nome) }
 \label{chap:desenvolvimento}
 
-Aqui entra o desenvolvimento real do trabalho com as principais técnicas de otimização
+Nesta seção serão apresentadas algumas técnicas de otimização para programação dinâmica, estas serão dividas em subseções, sendo cada uma das independentes entre si.
 
 \section{Redução de espaço}
-Dentre as otimizações disponíveis, as que envolvem redução de memória são as mais simples de serem aplicadas, seu uso pode ser facilmente entendido no problema da mochila \footnote{http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/}. Esse problema deseja maximar o valor dos itens colocados em uma mochila, onde estes possuem um valor e um peso associado, enquanto a mochila possui uma capacidade máxima de peso. Além disso, nenhum item pode ser dividido.  
 
+\begin{itemize}
+\item \textbf{Problema:}
+ É dado diversos itens e cada um possui um peso e valor associado, deseja-se colocar alguns em uma mochila\footnote{http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/} com a finalidade de maximizar o valor dos que foram selecionados. Porém a mochila possui uma capacidade máxima de peso. Além disso, nenhum item pode ser dividido.
+ \\
+\item \textbf{Solução ingênua:} 
 \begin{equation}
 dp[i][j] = 
 \begin{cases}
@@ -18,21 +22,35 @@ dp[i-1][j] &\text{se } peso[i-1] > j
 
 O problema da mochila pode ser resolvido através da relação de recorrência apresentada acima, onde $dp[i][j]$ representa o valor máximo que pode se conseguir ao colocar os $i$-ésimos primeiros itens em uma mochila de capacidade $j$. Os vetores $valor$ e $peso$, representam o valor e peso associado a cada um dos $n$ itens, respectivamente. A resposta para o problema estará em $dp[n][capacidade]$.
 
-Analisando a complexidade da equação \ref{eq:knapsack} é fácil ver que será necessário $O(n*capacidade)$, tanto de memória, quanto de tempo. Porém, é notório que para solucionar a linha $i$ da matriz de programação dinâmica, só são necessárias as respostas que já foram calculadas na linha $i - 1$, portanto podemos trabalhar apenas com duas linhas consecutivas da matriz, sempre alternando entre linha par e ímpar. 
 
+\item \textbf{Análise de particularidades:}
+Analisando a complexidade da equação \ref{eq:knapsack} é fácil ver que será necessário $O(n*capacidade)$, tanto de memória, quanto de tempo. Porém, é notório que para solucionar a linha $i$ da matriz de programação dinâmica, só são necessárias as respostas que já foram calculadas na linha $i - 1$.
+
+
+\item \textbf{Redução de espaço:} 
+Esta técnica visa solucionar problemas onde a quantidade de memória alocada não é sempre necessária, fazendo com que seja mantido em memória apenas o essencial. Para todos os problemas onde uma linha de uma tabela da programação dinâmica dependa de uma quantidade fixa de outras linhas, digamos $K$, é necessário apenas manter em memória $K$ linhas.
+
+Voltando ao problema proposto foi analisado que uma linha depende de apenas uma outra, portanto podemos trabalhar apenas com duas linhas consecutivas da matriz, sempre alternando entre linha par e ímpar. 
+A equação abaixo demonstra como fazer essa alternância entre linhas:
 \begin{equation}
-dp[i\&1][j] = 
+dp[i\&1][j] = \\
 \begin{cases}
 0 &\text{se } i = 0 \text{ ou } j = 0,\\
 
-max(valor[i-1] + dp[\text{\textasciitilde}i\&1][j-peso[i-1]], dp[\text{\textasciitilde}i\&1][j]) &\text{se } peso[i-1] \leq{j},\\
+max(valor[i-1] + dp[\text{\textasciitilde}i\&1][j-peso[i-1]],\\ dp[\text{\textasciitilde}i\&1][j]) &\text{se } peso[i-1] \leq{j},\\
 dp[\text{\textasciitilde}i\&1][j] &\text{se } peso[i-1] > j
 \end{cases}
 \label{eq:knapsackmemorialinear}
 \end{equation}
 
-A equação \ref{eq:knapsackmemorialinear} demostra como reduzir a memória. Os valores que serão utilizados nas linhas da DP serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade de $O(capacidade)$. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Sugere-se ao leitor tentar utilizar essa técnica na resolução do Fibonacci, que foi} \\\textit{explicado no capítulo \ref{chap:desenvolvimento}}. };
+\\
+\item \textbf{Benefícios:} 
+A equação \ref{eq:knapsackmemorialinear} ilustra como reduzir a memória. Os valores que serão utilizados nas linhas da tabela de programação dinâmica serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade de espacial de $O(capacidade)$. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
 
+
+\item \textbf{Código final:} 
 O seguinte código mostra a implementação do problema da mochila com memória linear.
 \begin{lstlisting}[caption={Implementação Mochila},label={lst:lis}]
 
@@ -40,7 +58,7 @@ int mochila(){
 	int valor[] = {60, 100, 120};
 	int peso[]  = {10, 20, 30};
 	int capacidade = 50, n = 3;
-	
+
 	int dp[2][capacidade + 1];
 	for(int i = 0; i <= n; i++){
 		for(int j = 0; j <= capacidade; j++){
@@ -48,18 +66,27 @@ int mochila(){
 				dp[i&1][j] = 0;
 			else if(peso[i - 1] <= j)
 				dp[i&1][j] = max(valor[i-1] + dp[~i&1][j-peso[i-1]],
-				                 dp[~i&1][j]);
+				dp[~i&1][j]);
 			else
-				dp[i&1][j] = dp[~si&1][j];
+				dp[i&1][j] = dp[~i&1][j];
 		}
 	}
 	return dp[n&1][capacidade]; 
 }
 \end{lstlisting}
+\end{itemize}
+
+
+
+
+
+
+
 
 \section{Estrutura de dados RMQ}
 
-Um dos problemas clássicos de programação dinâmica é o\sigla{LIS}{Longest Increasing Subsequence}(do inglês, \textit{Longest Increasing Subsequence}). Neste, o objetivo é encontrar a maior subsequência de um \textit{array} onde todos os elementos estão ordenados de forma crescente.
+\begin{itemize}
+ \item \textbf{Problema:} Um dos problemas clássicos de programação dinâmica é o\sigla{LIS}{Longest Increasing Subsequence}(do inglês, \textit{Longest Increasing Subsequence})\footnote{http://www.geeksforgeeks.org/longest-increasing-subsequence/}. Neste, o objetivo é encontrar a maior subsequência de um \textit{array} onde todos os elementos estão ordenados de forma crescente. Uma subsequência pode ser encontrada com a eliminação de alguns elemento do \textit{array}.
 
 Imaginemos o seguinte \textit{array}:
 
@@ -67,9 +94,9 @@ Imaginemos o seguinte \textit{array}:
 	${2, 5, 3, 7, 11, 8}$
 \end{center}
 
-Uma das solução para este conjunto é a subsequência ${2, 3, 7, 8}$, que possui tamanho quatro.
+Uma das solução para este conjunto é a subsequência ${2, 3, 7, 8}$, que possui tamanho quatro, porém esta não é única, existem outras com o mesmo tamanho, como é o caso da subsequência ${2, 5, 7, 11}$. Geralmente é esperado apenas o tamanho da maior LIS possível, portanto qual será escolhida não terá muita relevância, só será necessário se preocupar com isso quando houver a necessidade da reconstrução da solução.
 
-Para resolver este problema pode ser usado programação dinâmica com a seguinte recorrência:
+\item \textbf{Solução ingênua:} Este problema pode ser facilmente resolvido com o auxilio de programação dinâmica utilizando a seguinte recorrência:
 
 \begin{equation}
 dp[i] = 
@@ -81,10 +108,22 @@ max(dp[j] + 1)_{0 \leq j < i} &\text{se } i \neq 0 \text{ e } v[j] \leq v[i]
 \label{eq:lisQuadrado}
 \end{equation}
 
-A equação \ref{eq:lisQuadrado}, resolve o problema do LIS, com a complexidade $O(n^2)$ de tempo e $O(n)$ de memória, porém é notório que quando está sendo calculado a $dp[i]$, ou seja, a maior LIS que termina no $i$-ésimo índice, está sendo percorrido todos elementos do $array$ que estão a esquerda e que possuem um valor menor ou igual que o elemento atual. Em outras palavras, queremos o maior elemento da $dp$ que seu valor está no intervalo $[0..v[i]]$.
+A equação \ref{eq:lisQuadrado}, resolve o problema do LIS, com a complexidade $O(n^2)$ de tempo e $O(n)$ de memória. Nesta solução $dp[i]$ representa qual a maior LIS que pode ser formada onde o último elemento é exatamente o índice $i$. Para calcular cada estado $i$ é selecionado um estado $j$ que já tenha sido calculado e possui maior valor, além disso o valor do elemento $j$ tem que ser menor ou igual que o elemento $i$. Isto significa que a LIS que termina em $i$ é uma junção da LIS terminada em $j$ adicionado o elemento $i$ ao final dela. Após calcular todos os estados utilizando a recorrência, basta percorrer o $array$ $dp$ e pegar o maior valor dele.
 
-A partir destas observações podemos melhorar a complexidade dessa solução com o auxílio de uma estrutura de dados que consegue consultar máximo ou mínimo de intervalo de um $array$ de forma mais eficiente. Pode ser ela uma $Segment Tree$\footnote{http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/} ou $BIT$\footnote{http://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/}, com isso é possível remover a busca linear no \textit{array} pelo maior elemento e trocar por uma busca logarítmica, deixando a solução final com $O(n*logn)$.
+\item \textbf{Análise de particularidades:} É notório que quando está sendo calculado a $dp[i]$, ou seja, a maior LIS que termina no $i$-ésimo índice, está sendo percorrido todos elementos do $array$ que estão a esquerda e que possuem um valor menor ou igual que o elemento atual. Em outras palavras, queremos o maior elemento da $dp$ que seu valor está no intervalo $[0..v[i]]$.
+\\
 
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Sugere-se ao leitor pensar uma maneira mais eficiente de encontrar o maior elemento} \\\textit{ do array}. };
+\\
+
+\item \textbf{Estruturas de dados RMQ:}
+Existem algumas estruturas de dados que resolvem problemas parecidos com este, onde é dado um \textit{array} e é necessário consultar o máximo ou mínimo elemento em um determinado intervalo, estas operações normalmente são chamadas de\sigla{RMQ}{Range Minimum Query}(do inglês, \textit{Range Minimum Query}). Espera-se destas estruturas uma complexidade melhor que $O(n)$, que seria a forma mais simples de conseguir o máximo, bastando apenas iterar por todo o intervalo. É o 
+caso da $Segment Tree$\footnote{http://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/} ou $BIT$\footnote{http://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/}, ambas realizam estas operações em $O(logn)$.
+
+\item \textbf{Benefícios:} Ao remover a busca linear para encontrar o maior elemento já calculado e adicionando uma das estruturas citadas, a complexidade da busca será reduzida de $O(n)$ para $O(logn)$, deixando assim a LIS em uma complexidade final de $O(n*logn)$.
+
+\item \textbf{Código final:} 
 O código a seguir mostra uma maneira de implementar o LIS utilizando $BIT$.
 \begin{lstlisting}[caption={Implementação LIS},label={lst:lis}]
 
