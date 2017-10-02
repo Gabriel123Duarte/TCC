@@ -7,7 +7,7 @@ Nesta seção serão apresentadas algumas técnicas de otimização para program
 
 \begin{itemize}
 \item \textbf{Problema:}
- É dado diversos itens e cada um possui um peso e valor associado, deseja-se colocar alguns em uma mochila\footnote{http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/} com a finalidade de maximizar o valor dos que foram selecionados. Porém a mochila possui uma capacidade máxima de peso. Além disso, nenhum item pode ser dividido.
+ São dados diversos itens e cada um possui um peso e valor associado, deseja-se colocar alguns em uma mochila\footnote{http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/} com a finalidade de maximizar o valor dos que foram selecionados. Porém a mochila possui uma capacidade máxima de peso. Além disso, nenhum item pode ser dividido.
  \\
 \item \textbf{Solução ingênua:} 
 \begin{equation}
@@ -94,7 +94,7 @@ Imaginemos o seguinte \textit{array}:
 	${2, 5, 3, 7, 11, 8}$
 \end{center}
 
-Uma das solução para este conjunto é a subsequência ${2, 3, 7, 8}$, que possui tamanho quatro, porém esta não é única, existem outras com o mesmo tamanho, como é o caso da subsequência ${2, 5, 7, 11}$. Geralmente é esperado apenas o tamanho da maior LIS possível, portanto qual será escolhida não terá muita relevância, só será necessário se preocupar com isso quando houver a necessidade da reconstrução da solução.
+Uma das solução para este conjunto é a subsequência ${2, 3, 7, 8}$, que possui tamanho quatro, porém esta não é única, existem outras com o mesmo tamanho, como é o caso da subsequência ${2, 5, 7, 11}$. Geralmente é esperado apenas o tamanho da maior LIS possível. Portanto, qual LIS será escolhida não terá muita relevância, só será necessário se preocupar com isso quando houver a necessidade da reconstrução da solução.
 
 \item \textbf{Solução ingênua:} Este problema pode ser facilmente resolvido com o auxilio de programação dinâmica utilizando a seguinte recorrência:
 
@@ -156,23 +156,118 @@ int lis(int n){
 	return ans;
 }
 \end{lstlisting}
-
-\section{Divide and Conquer Optimization}
-Problemas:
-
-\begin{itemize}
-	\item Kattis Branch Assignment WF 2016
 \end{itemize}
+\section{Divide and Conquer Optimization}
+\begin{itemize}
+\item \textbf{Problema:}
+É dado $n$ objetos, cada um com um valor associado $x_{1}, x_{2}, x_{3}, ..., x_{n}$, onde $x_{i} > 0 _{\forall{i}}$ e é necessário dividi-los em $k$ grupos consecutivos, porém é necessário que esta divisão seja feita com o menor custo possível. O custo para criação de um grupo é igual a soma dos valores de todos elementos do grupo multiplicado pela quantidade de objetos.
 
+Supondo que são quatro objetos e seus valores são {1, 2, 3, 4} e é necessário dividir estes em dois grupos. Uma divisão possível seria colocar os objetos com valores {1, 2, 3} no primeiro grupo o que resultaria em um custo de 18, ou seja, a soma deles que é igual a 6, multiplicado pela quantidade de elementos, 3. Por fim, o elemento 4 ficaria no segundo grupo, tendo como custo o valor 4. Portanto para esta configuração o custo total é a soma de todos os dois grupos, o que gera um valor de $18+4=22$. Analisando um pouco melhor este exemplo é fácil notar que esta configuração não é a melhor possível. A solução ótima seria deixar os objetos com valores 1 e 2 no primeiro grupo e os demais elementos no segundo grupo, gerando um custo total de 20.
+
+\item \textbf{Solução ingênua:} Para resolver este problema o primeiro passo pode ser calcular uma matriz $C[i][j]$, que corresponde ao custo total  para agrupar todos os elementos do índice $i$ até o índice $j$. O tempo total para calcular a matriz poderá ser de ordem quadrática.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Fica como sugestão ao leitor implementar o cálculo da matriz $C$ com tempo $O(n^2)$.}};
+\\
+
+A equação \ref{eq:dc1} exemplifica uma maneira de implementar o problema, onde $dp[i][j]$ representa o menor custo para criar $i$ grupos estando no $j$-ésimo objeto. A resposta estará em $dp[k][n]$, levando em consideração que o $array$ está indexado a partir da posição 1. Para solucionar cada estado é necessário percorrer todos os elementos que são menores que $j$ e verificar se criar um novo grupo naquela posição irá melhorar solução, para tal será feito em média $n/2$ iterações o que leva em uma complexidade final de $O(k*n^2)$.
+
+\begin{equation}
+dp[i][j] =
+\begin{cases}
+0 &\text{se } i = 0 \\
+C[i][j] &\text{se } i = 1 \\
+min_{l < j}(dp[i-1][l] + C[l+1][j]) &\text{se } i > 1
+\end{cases}
+\label{eq:dc1}
+\end{equation}
+
+\item \textbf{Análise de particularidades:} 
+Se for definido uma matriz $opt[i][j]$ que representa qual é o $l$ ótimo para realizar a divisão da $dp[i][j]$, ou seja, o ponto ótimo que minimiza o valor daquele estado, é possível notar que para qualquer $i$ e $j$, $opt[i][j] \leq opt[i][j+1]$, portanto, $j$ é monotônico\footnote{https://en.wikipedia.org/wiki/Monotonic\_function} para um $i$ fixo. Isto é verdade pois ao inserir um novo objeto em um grupo o valor deste só poderá aumentar, devido a formulação da função de custo. Assim, um conjunto com $x+1$ elementos não poderá ter um ponto ótimo de divisão menor do que este mesmo conjunto com $x$ elementos.
+
+\item \textbf{Divide and Conquer Optimization:} Devido a monotonicidade de $opt$, pode-se melhorar a complexidade da solução proposta, pois como observado, para calcular o estado ($i$, $j+1$), não é necessário testar valores de $l$ que são menores do que $opt[i][j]$, mas sim só é necessário os valores que são maiores ou iguais a $opt[i][j]$. Para a implementação desta técnica podemos recorrer a divisão e conquista\footnote{https://pt.wikipedia.org/wiki/Divisão\_e\_conquista}, onde pode-se criar uma função recursiva que para um $i$ fixo, é aplicado a divisão e conquista no $j$, sendo mantido o intervalo do $j$ e o intervalo válido de $l$, que representa o ponto ótimo.
+
+\item \textbf{Benefícios:} Ao calcular o valor e o ponto ótimo $x$ para um estado $j$, a divisão em conquista se responsabilizará por chamar a recursão para resolver o estado $j-1$ com o intervalo de $l$ variando de $1..x$ e a recursão para o estado $j+1$ com o $l$ entre $x..n$, assim é perceptível que o intervalo de busca do ponto ótimo que no início era $0..n$, foi dividido pela metade, e este é exatamente o pior caso, quando o ótimo está exatamente no meio. Portanto para calcular um estado $j$ para um $i$ fixo, a complexidade é $O(n*logn)$, bem menor do que a solução ingênua que gastava $O(n^2)$ para cada $i$. Sendo assim, a complexidade final ao aplicar esta técnica neste problema fica $O(k*n*logn)$.
+\item \textbf{Código final:} A seguir é apresentado um código que resolve este problema. Para obter a solução basta chamar a função $divideAndConquer()$, passando como parâmetro o total de elementos e a quantidade de grupos desejados.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Fica como sugestão ao leitor resolver o problema 2475 - Confecção de Presentes} \\\textit{do site URI - Online Judge}};
+
+\begin{lstlisting}[caption={Implementação Divide and Conquer},label={lst:dc}]
+#define MAXN 10
+#define inf 99999999
+
+int arr[MAXN] = {1, 2, 3, 4};
+int C[MAXN][MAXN], dp[MAXN][MAXN];
+
+void solve(int i, int jInicio, int jFim, int optInicio, int optFim){
+	if(jInicio > jFim)
+	return;
+	
+	int mid = (jInicio + jFim) / 2;
+	dp[i][mid] = inf;
+	int opt = -1;
+	
+	for(int l = optInicio; l <= min(optFim, mid); l++){
+		if(dp[i-1][l] + C[l+1][mid] < dp[i][mid]){
+			dp[i][mid] = dp[i-1][l] + C[l+1][mid];
+			opt = l;
+		}
+	}
+	
+	solve(i, jInicio, mid-1, optInicio, opt);
+	solve(i, mid+1, jFim, opt, optFim);
+}
+
+int divideAndConquer(int n, int k){
+	// Calculo da funcao custo O(n^2)
+	for(int i = 0; i < n; i++){
+		int soma = 0;
+		for(int j = i; j < n; j++){
+			soma += arr[j];
+			C[i][j] = soma*(j-i+1);
+		}
+	}
+	
+	// Casos base
+	for(int i = 0; i < n; i++)
+		dp[0][i] = 0;
+	for(int i = 0; i < n; i++)
+		dp[1][i] = C[0][i];
+	
+	for(int i = 2; i <= k; i++)
+		solve(i, 0, n-1, 0, n-1);
+	
+	return dp[k][n-1];
+}
+
+\end{lstlisting}
+\end{itemize}
 \section{Knuth Optimization}
-Problemas:
+\begin{itemize}
+\item \textbf{Problema:}
+\item \textbf{Solução ingênua:} 
+\item \textbf{Análise de particularidades:}
+\item \textbf{“Nome da técnica”:}
+\item \textbf{Benefícios:}
+\item \textbf{Código final:}
+\end{itemize}
 \begin{itemize}
 	\item Codechef = CHEFAOR
 	\item URI 2475
 \end{itemize}
 
 \section{Convex Hull Trick}
-Problemas:
+\begin{itemize}
+	\item \textbf{Problema:}
+	\item \textbf{Solução ingênua:} 
+	\item \textbf{Análise de particularidades:}
+	\item \textbf{“Nome da técnica”:}
+	\item \textbf{Benefícios:}
+	\item \textbf{Código final:}
+\end{itemize}
 \begin{itemize}
 	\item URI 2481
 \end{itemize}
