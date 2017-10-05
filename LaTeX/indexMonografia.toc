@@ -12,8 +12,8 @@
 \contentsline {section}{\numberline {5.2}\MakeUppercase {Estrutura de dados RMQ}}{24}
 \contentsline {section}{\numberline {5.3}\MakeUppercase {Divide and Conquer Optimization}}{26}
 \contentsline {section}{\numberline {5.4}\MakeUppercase {Knuth Optimization}}{29}
-\contentsline {section}{\numberline {5.5}\MakeUppercase {Convex Hull Trick}}{29}
-\contentsline {chapter}{\numberline {6}\MakeUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{30}
-\contentsline {section}{\numberline {6.1}\MakeUppercase {Conclus\IeC {\~o}es}}{30}
-\contentsline {section}{\numberline {6.2}\MakeUppercase {Trabalhos Futuros}}{30}
-\contentsline {chapter}{REFER\^ENCIAS}{31}
+\contentsline {section}{\numberline {5.5}\MakeUppercase {Convex Hull Trick}}{32}
+\contentsline {chapter}{\numberline {6}\MakeUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{34}
+\contentsline {section}{\numberline {6.1}\MakeUppercase {Conclus\IeC {\~o}es}}{34}
+\contentsline {section}{\numberline {6.2}\MakeUppercase {Trabalhos Futuros}}{34}
+\contentsline {chapter}{REFER\^ENCIAS}{35}

@@ -160,7 +160,7 @@ int lis(int n){
 \section{Divide and Conquer Optimization}
 \begin{itemize}
 \item \textbf{Problema:}
-É dado $n$ objetos, cada um com um valor associado $x_{1}, x_{2}, x_{3}, ..., x_{n}$, onde $x_{i} > 0 _{\forall{i}}$ e é necessário dividi-los em $k$ grupos consecutivos, porém é necessário que esta divisão seja feita com o menor custo possível. O custo para criação de um grupo é igual a soma dos valores de todos elementos do grupo multiplicado pela quantidade de objetos.
+São dados $n$ objetos, cada um com um valor associado $x_{1}, x_{2}, x_{3}, ..., x_{n}$, onde $x_{i} > 0 _{\forall{i}}$ e é necessário dividi-los em $k$ grupos consecutivos, porém é necessário que esta divisão seja feita com o menor custo possível. O custo para criação de um grupo é igual a soma dos valores de todos elementos do grupo multiplicado pela quantidade de objetos.
 
 Supondo que são quatro objetos e seus valores são {1, 2, 3, 4} e é necessário dividir estes em dois grupos. Uma divisão possível seria colocar os objetos com valores {1, 2, 3} no primeiro grupo o que resultaria em um custo de 18, ou seja, a soma deles que é igual a 6, multiplicado pela quantidade de elementos, 3. Por fim, o elemento 4 ficaria no segundo grupo, tendo como custo o valor 4. Portanto para esta configuração o custo total é a soma de todos os dois grupos, o que gera um valor de $18+4=22$. Analisando um pouco melhor este exemplo é fácil notar que esta configuração não é a melhor possível. A solução ótima seria deixar os objetos com valores 1 e 2 no primeiro grupo e os demais elementos no segundo grupo, gerando um custo total de 20.
 
@@ -248,15 +248,132 @@ int divideAndConquer(int n, int k){
 \section{Knuth Optimization}
 \begin{itemize}
 \item \textbf{Problema:}
-\item \textbf{Solução ingênua:} 
+Uma \textit{string} é dada e deseja-se realizar alguns cortes nela. A cada corte feito, ela será dividida em duas partes e terá um custo associado para fazer tal operação, que é igual exatamente ao tamanho original antes de efetuar o corte. Imaginemos a \textit{string} \enquote{knuthoptimization} que possui $17$ caracteres e é preciso realizar os cortes nos índices $2, 6 e 8$, levando em consideração que a \textit{string} está indexada começando em $1$.
+O valor total para realizar todos os cortes, estão diretamente relacionados a ordem escolhida para efetuar as divisões. As tabelas \ref{tab:knuthCorte} e \ref{tab:knuthCorte2} mostram os custos associados ao realizar os cortes de duas maneiras distintas. Na tabela \ref{tab:knuthCorte} foi escolhido fazer os cortes indo da esquerda para direita, enquanto a tabela \ref{tab:knuthCorte2} mostra como ficaria a resposta se fosse feito da direita para esquerda.
+
+\begin{table}[H]
+	\centering
+	\caption[Problema Knuth realizando cortes da esquerda para direita]{Problema Knuth realizando cortes da esquerda para direita}
+	\label{tab:knuthCorte}
+	\begin{tabular}{p{3cm}|p{4cm}|p{3cm}}
+		\hline \SPACE
+		\textbf{Corte} & \textbf{\textit{String}} & \textbf{Custo} \\  \hline \SPACE
+		- & knuthoptimization    &  0\\ \hline \SPACE
+		2 & kn uthoptimization   &  17\\ \hline \SPACE
+		6 & kn utho ptimization  &  15\\ \hline \SPACE
+		8 & kn utho pt imization &  11\\ \hline \SPACE
+		\textbf{Total}  & -   &  43 \\ \hline  
+	\end{tabular} 	
+\end{table}
+\fonte{Pr\'oprio Autor.}
+
+\begin{table}[H]
+	\centering
+	\caption[Problema Knuth realizando cortes da direita para esquerda]{Problema Knuth realizando cortes da direita para esquerda}
+	\label{tab:knuthCorte2}
+	\begin{tabular}{p{3cm}|p{4cm}|p{3cm}}
+		\hline \SPACE
+		\textbf{Corte} & \textbf{\textit{String}} & \textbf{Custo} \\  \hline \SPACE
+		- & knuthoptimization    &  0\\ \hline \SPACE
+		8 & knuthopt imization   &  17\\ \hline \SPACE
+		6 & knutho pt imization  &  8\\ \hline \SPACE
+		2 & kn utho pt imization &  6\\ \hline \SPACE
+		\textbf{Total}  & -   &  31 \\ \hline  
+	\end{tabular} 	
+\end{table}
+\fonte{Pr\'oprio Autor.}
+
+Ao analisar as tabelas, fica evidente que a ordem do corte fará com que o custo total aumente ou diminua, portanto esse problema deseja saber qual é o menor valor possível para realizar todas as divisões propostas.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Para melhor entendimento, é sugerido ao leitor encontrar qual o menor custo para} \\\textit{o exemplo proposto.}};
+\\
+
+\item \textbf{Solução ingênua:} Para resolução deste problema, a primeira coisa importante a se notar é que o tamanho da \textit{string} não é tão importante, o mais relevante é onde onde cortes devem ser realizados. Assim a complexidade das soluções estarão ligadas a quantidade \textit{k} de cortes.
+
+Sendo o \textit{array} $v_{1}, v_{2}, ..., v_{k}$ representando as posições de cada divisão, onde $v_{1} < v_{2} < ... < v_{k}$, pode ser pensado em uma solução com programação dinâmica que utilize dois ponteiros, $i$ e $j$, que representam quais posições estão sendo analisadas no momento, e para solucionar cada estado basta escolher uma posição $x$ onde $i < x < j$ que minimize o custo.
+
+\begin{equation}
+dp[i][j] =
+\begin{cases}
+0 &\text{se } j-i \leq 2 \\
+min_{i < x < j}(dp[i][x] + dp[x][j] + v[j] - v[i]) &
+\end{cases}
+\label{eq:knuthBruto}
+\end{equation}
+
+A equação \ref{eq:knuthBruto} apresenta uma possível solução para o problema, onde custo para realizar um corte está representado como sendo $v[j]-v[i]$, ou seja, o tamanho da \textit{string} que está sendo considerada. Porém, através da definição do problema, é visto que para realizar o primeiro corte o custo será igual ao tamanho original da \textit{string}, mas esta solução não está tratando isso. Para resolver este detalhe, uma maneira simples é inserir dois elementos extras no \textit{array} de cortes, estes irão representar o tamanho completo. Após a modificação este ficará como sendo $v_{0}, v_{1}, v_{2}, ..., v_{k}, v_{k+1}$, onde $v_{0}$ tem o valor $0$ e $v_{k+1}$ possui o tamanho inteiro da \textit{string}. Com estas modificações o algoritmo proposto irá funcionar e a resposta estará em $dp[0][k]$.
+Para solucionar cada estado $i$, $j$ da matriz, é necessário iterar por todos elementos que estão neste intervalo para encontrar o melhor candidato a resposta, por conta disso a complexidade final fica $O(k^3)$.
+
 \item \textbf{Análise de particularidades:}
-\item \textbf{“Nome da técnica”:}
+Se for definido uma função de custo $C[i][j]$ que representa o valor para cortar um \textit{string} estando nos índices $i$ e $j$ do \textit{array} $v$, esta pode ser interpretada como sendo $C[i][j] = v[j]-v[i]$. É possível notar que o custo é monotônico, respeitando a equação \ref{eq:monotonicidadeKnuth}.
+\begin{equation}
+C[b][c] \leq C[a][d] , a \leq b \leq c \leq d
+\label{eq:monotonicidadeKnuth}
+\end{equation}
+
+Essa equação implica que todos os subintervalos possuem um custo menor ou igual ao intervalo que ele está contido. Para melhor entendimento vamos imaginar o seguinte \textit{array} de cortes, com os índices variando de 1 até 5: $v = \{1, 2, 5, 10, 15\}$, se como intervalo maior for selecionado o elementos nas posição 1 e 5, o custo será 14, agora ao pegar duas posições $x$ e $y$, onde $1 \leq x \leq y \leq 5$ é evidente que não será possível ter um custo maior que 14.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Sugere-se ao leitor avançar para a próxima parte da otimização apenas quando tiver} \\\textit{entendido a condição de monotonicidade do problema.}};
+\\
+
+\item \textbf{Knuth Optimization:} 
+Devido a monotonicidade da função custo, é possível definir uma matriz $opt[i][j]$ que representa qual o menor $x$ que gera a melhor solução para a $dp[i][j]$, ou seja, o ponto ótimo para realizar o corte. É possível notar que qualquer par de $i$ e $j$, onde $i \leq j$ a propriedade mostrada na equação \ref{eq:optKnuth} é mantida.
+
+\begin{equation}
+opt[i][j-1] \leq opt[i][j] \leq opt[i+1][j]
+\label{eq:optKnuth}
+\end{equation}
+
+Para melhor entendimento pode ser divida a equação em duas partes, na primeira, $opt[i][j-1] \leq opt[i][j]$, fica fácil ver que esta é verdade pois se fixarmos o $i$ e aumentarmos o tamanho do intervalo em 1 para a direita o ponto ótimo não poderá estar antes do intervalo menor, isto se deve ao fato do custo ser monotônico, assim, se fosse melhor realizar o corte na posição $x$ para $i$ e $j$, então para $i$ e $j-1$ também seria ótimo escolher a posição $x$, ou então uma posição menor. O mesmo raciocínio vale para a segunda parte da equação, $opt[i][j] \leq opt[i+1][j]$, porém aqui o intervalo está sendo diminuído em 1.
+Baseado nessas características, agora é possível mudar a forma de calcular o valor de $x$ da equação \ref{eq:knuthBruto}, fazendo com que ele itere apenas entre $opt[i][j-1]$ e $opt[i+1][j]$.
+
 \item \textbf{Benefícios:}
-\item \textbf{Código final:}
-\end{itemize}
-\begin{itemize}
-	\item Codechef = CHEFAOR
-	\item URI 2475
+O grande gargalo da solução proposta era o cálculo do ponto ótimo $x$ de cada estado, que em média gastará $O(k)$. Ao utilizar as informações referentes ao $opt$, pode-se calcular a matriz $dp$ em ordem crescente de $j-i$, ou seja, dos menores intervalos até os maiores. Além disso, o $x$ não irá mais variar entre $i+1$ e $j-1$, mas sim entre $opt[i][j-1]$ e $opt[i+1][j]$. Portanto agora para o cálculo de um estado de tamanho $y = j-i$, o tempo necessário é igual a $opt[y+1][2] - opt[y][1] + opt[y+2][3] - opt[y+1][2] + ... + opt[k][k-y+1] - opt[k-1][k-y] = opt[k][k-d+1] - opt[k][1] = O(k)$. Sendo assim, o tempo total para resolver toda a matriz $dp$ sai de $O(k^3)$ para $O(k^2)$.
+\item \textbf{Código final:} O algoritmo abaixo apresenta a implementação para o problema. Para obter a resposta basta preencher o \textit{array} $v$ com os cortes necessários, estes deverão estar com os índices entre $1...k$. Ao chamar a função $knuthOptimization()$, passando como parâmetro o tamanho da \textit{string} e o total de cortes, será devolvido o custo mínimo.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Fica como sugestão ao leitor resolver o problema BRKSTRNG - Breaking String} \\\textit{do site SPOJ.com}};
+
+\begin{lstlisting}[caption={Implementação Knuth Optimization},label={lst:knuth}]
+#define MAXN 1010
+#define inf 99999999
+
+int v[MAXN];
+int dp[MAXN][MAXN];
+int opt[MAXN][MAXN];
+
+int knuthOptimization(int n, int k){
+	// Adicionado os elementos extras
+	v[0] = 0;
+	v[++k] = n;
+	k++;
+	
+	for(int tam = 1; tam <= k; tam++){
+		for(int i = 0; i+tam <= k; i++){
+			int j = i+tam-1;
+			if(tam <= 2){
+				dp[i][j] = 0;
+				opt[i][j] = i;
+				continue;
+			}
+			dp[i][j] = inf;
+			for(int x = opt[i][j-1]; x <= opt[i+1][j]; x++){
+				if(dp[i][x] + dp[x][j] + v[j]-v[i] < dp[i][j]){
+					dp[i][j] = dp[i][x] + dp[x][j] + v[j]-v[i];
+					opt[i][j] = x;
+				}
+			}
+		}
+	}
+	return dp[0][k-1];
+}
+\end{lstlisting}
+
 \end{itemize}
 
 \section{Convex Hull Trick}

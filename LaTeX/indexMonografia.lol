@@ -3,3 +3,4 @@
 \contentsline {lstlisting}{\numberline {1}Implementa\IeC {\c c}\IeC {\~a}o Mochila}{23}
 \contentsline {lstlisting}{\numberline {2}Implementa\IeC {\c c}\IeC {\~a}o LIS}{25}
 \contentsline {lstlisting}{\numberline {3}Implementa\IeC {\c c}\IeC {\~a}o Divide and Conquer}{27}
+\contentsline {lstlisting}{\numberline {4}Implementa\IeC {\c c}\IeC {\~a}o Knuth Optimization}{32}
