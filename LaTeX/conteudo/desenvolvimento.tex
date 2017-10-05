@@ -77,12 +77,6 @@ int mochila(){
 \end{itemize}
 
 
-
-
-
-
-
-
 \section{Estrutura de dados RMQ}
 
 \begin{itemize}
@@ -248,7 +242,7 @@ int divideAndConquer(int n, int k){
 \section{Knuth Optimization}
 \begin{itemize}
 \item \textbf{Problema:}
-Uma \textit{string} é dada e deseja-se realizar alguns cortes nela. A cada corte feito, ela será dividida em duas partes e terá um custo associado para fazer tal operação, que é igual exatamente ao tamanho original antes de efetuar o corte. Imaginemos a \textit{string} \enquote{knuthoptimization} que possui $17$ caracteres e é preciso realizar os cortes nos índices $2, 6 e 8$, levando em consideração que a \textit{string} está indexada começando em $1$.
+Uma \textit{string} é dada e deseja-se realizar alguns cortes nela. A cada corte feito, ela será dividida em duas partes e terá um custo associado para fazer tal operação, que é igual exatamente ao tamanho original antes de efetuar o corte. Imaginemos a \textit{string} \enquote{knuthoptimization} que possui $17$ caracteres e é preciso realizar os cortes nos índices 2, 6 e 8, levando em consideração que a \textit{string} está indexada começando em $1$.
 O valor total para realizar todos os cortes, estão diretamente relacionados a ordem escolhida para efetuar as divisões. As tabelas \ref{tab:knuthCorte} e \ref{tab:knuthCorte2} mostram os custos associados ao realizar os cortes de duas maneiras distintas. Na tabela \ref{tab:knuthCorte} foi escolhido fazer os cortes indo da esquerda para direita, enquanto a tabela \ref{tab:knuthCorte2} mostra como ficaria a resposta se fosse feito da direita para esquerda.
 
 \begin{table}[H]
@@ -376,14 +370,34 @@ int knuthOptimization(int n, int k){
 
 \end{itemize}
 
+\newpage
 \section{Convex Hull Trick}
 \begin{itemize}
-	\item \textbf{Problema:}
-	\item \textbf{Solução ingênua:} 
-	\item \textbf{Análise de particularidades:}
-	\item \textbf{“Nome da técnica”:}
-	\item \textbf{Benefícios:}
-	\item \textbf{Código final:}
+\item \textbf{Problema:}
+Uma estrada está sendo construída e é necessário cobrir $n$ pontos dela. O custo para se cobrir um pedaço da estrada que vai do ponto $x$ até o ponto $y$, é definido como sendo $(x-y)^2 + c$, onde $c$ uma constante qualquer. Para exemplificar, vamos supor o \textit{array} $v = \{1, 3, 8, 10\}$, que representa os pontos que precisam de cobertura, além disso, o valor da constante $c$ é 5. Portanto, uma solução possível seria realizar a cobertura do ponto 1 até o 8, com o custo de $(1-8)^2 + 5 = 54$ e uma cobertura única no ponto 10, totalizando $(10-10)^2 + 5 = 5$. Para tal configuração, o valor total para cobrir os 4 pontos seria de 59. O objetivo deste problema é encontrar o custo mínimo para realizar a cobertura.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Para melhor entendimento, é sugerido ao leitor encontrar a melhor solução para} \\\textit{o exemplo proposto.}};
+\\
+
+\item \textbf{Solução ingênua:} 
+Assumindo que os elementos no \textit{array} $v$, estão indexado em 1, a equação \ref{eq:chtBruto} mostra uma possível solução.
+
+\begin{equation}
+dp[i] =
+\begin{cases}
+0 &\text{se } i = 0 \\
+min_{1 \leq j \leq i}(dp[j-1] + (v[i] - v[j])^2 + c) &
+\end{cases}
+\label{eq:chtBruto}
+\end{equation}
+
+
+\item \textbf{Análise de particularidades:}
+\item \textbf{Convex Hull Trick:}
+\item \textbf{Benefícios:}
+\item \textbf{Código final:}
 \end{itemize}
 \begin{itemize}
 	\item URI 2481

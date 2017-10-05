@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  5 OCT 2017 12:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  5 OCT 2017 14:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1497,65 +1497,75 @@ Overfull \hbox (2.42328pt too wide) in paragraph at lines 68--69
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 113--115
+Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 117--119
+Underfull \hbox (badness 10000) in paragraph at lines 111--113
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
+Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--173
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 192--194
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
 
 [27]
-Overfull \hbox (2.42328pt too wide) in paragraph at lines 205--206
+Overfull \hbox (2.42328pt too wide) in paragraph at lines 199--200
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
 [28]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 260.
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 254.
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--288
+Underfull \hbox (badness 10000) in paragraph at lines 280--282
 
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 290--292
+Underfull \hbox (badness 10000) in paragraph at lines 284--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--318
+Underfull \hbox (badness 10000) in paragraph at lines 310--312
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 320--322
+Underfull \hbox (badness 10000) in paragraph at lines 314--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--338
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
 
  []
 
-[31] [32]) (./conteudo/conclusao.tex [33]
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 376--379
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--383
+
+ []
+
+) (./conteudo/conclusao.tex [33]
 Cap\'{\i }tulo 6.
 ) (./indexMonografia.bbl [34
 
@@ -1573,10 +1583,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24921 strings out of 494929
- 461367 string characters out of 6180142
- 588608 words of memory out of 5000000
- 27667 multiletter control sequences out of 15000+600000
+ 24922 strings out of 494929
+ 461380 string characters out of 6180142
+ 588657 words of memory out of 5000000
+ 27668 multiletter control sequences out of 15000+600000
  53335 words of font info for 98 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  55i,13n,58p,10414b,1755s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1589,7 +1599,7 @@ lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on indexMonografia.pdf (39 pages, 216909 bytes).
+Output written on indexMonografia.pdf (39 pages, 218483 bytes).
 PDF statistics:
  237 PDF objects out of 1000 (max. 8388607)
  121 compressed objects within 2 object streams
