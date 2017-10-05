@@ -1,7 +1,7 @@
 \chapter{Desenvolvimento (Alterar Nome) }
 \label{chap:desenvolvimento}
 
-Nesta seção serão apresentadas algumas técnicas de otimização para programação dinâmica, estas serão dividas em subseções, sendo cada uma das independentes entre si.
+Nesta seção serão apresentadas algumas técnicas de otimização para programação dinâmica, estas serão dividas em subseções, sendo cada uma delas independentes entre si.
 
 \section{Redução de espaço}
 
@@ -47,7 +47,7 @@ dp[\text{\textasciitilde}i\&1][j] &\text{se } peso[i-1] > j
 {\textit{Sugere-se ao leitor tentar utilizar essa técnica na resolução do Fibonacci, que foi} \\\textit{explicado no capítulo \ref{chap:desenvolvimento}}. };
 \\
 \item \textbf{Benefícios:} 
-A equação \ref{eq:knapsackmemorialinear} ilustra como reduzir a memória. Os valores que serão utilizados nas linhas da tabela de programação dinâmica serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade de espacial de $O(capacidade)$. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
+A equação \ref{eq:knapsackmemorialinear} ilustra como reduzir a memória. Os valores que serão utilizados nas linhas da tabela de programação dinâmica serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade de espacial de $O(capacidade)$. Uma maneira simples de alternar entre par e ímpar é utilizar operações binárias. Para verificar se um número é ímpar, basta fazer o \textit{AND} entre o número desejado e o número 1, assim o valor retornado será 1 se for ímpar e 0 se for par. Agora para saber a paridade da linha anterior, basta inverter a paridade da linha atual, para isto pode-se usar o operador \text{\textasciitilde}, que é responsável por inverter todos os bits de um número. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
 
 
 \item \textbf{Código final:} 
