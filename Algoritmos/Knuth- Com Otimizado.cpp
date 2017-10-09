@@ -25,11 +25,11 @@ int knuthOptimization(int n, int k){
 	v[0] = 0;
 	v[++k] = n;
 	k++;
-	
+
 	for(int tam = 1; tam <= k; tam++){
 		for(int i = 0; i+tam <= k; i++){
 			int j = i+tam-1;
-			if(tam <= 2){
+			if(j-i <= 1){
 				dp[i][j] = 0;
 				opt[i][j] = i;
 				continue;
@@ -52,6 +52,6 @@ int main(){
 	for(int i = 1; i <= k; i++)
 		cin >> v[i];
 
-	cout << solve(n, k) << endl;	
+	cout << knuthOptimization(n, k) << endl;	
 	return 0;
 }

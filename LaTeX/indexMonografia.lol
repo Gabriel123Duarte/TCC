@@ -4,3 +4,4 @@
 \contentsline {lstlisting}{\numberline {2}Implementa\IeC {\c c}\IeC {\~a}o LIS}{25}
 \contentsline {lstlisting}{\numberline {3}Implementa\IeC {\c c}\IeC {\~a}o Divide and Conquer}{27}
 \contentsline {lstlisting}{\numberline {4}Implementa\IeC {\c c}\IeC {\~a}o Knuth Optimization}{32}
+\contentsline {lstlisting}{\numberline {5}Implementa\IeC {\c c}\IeC {\~a}o Convex Hull Trick 1}{36}

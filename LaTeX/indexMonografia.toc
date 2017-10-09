@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {5.3}\MakeUppercase {Divide and Conquer Optimization}}{26}
 \contentsline {section}{\numberline {5.4}\MakeUppercase {Knuth Optimization}}{29}
 \contentsline {section}{\numberline {5.5}\MakeUppercase {Convex Hull Trick}}{33}
-\contentsline {chapter}{\numberline {6}\MakeUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{34}
-\contentsline {section}{\numberline {6.1}\MakeUppercase {Conclus\IeC {\~o}es}}{34}
-\contentsline {section}{\numberline {6.2}\MakeUppercase {Trabalhos Futuros}}{34}
-\contentsline {chapter}{REFER\^ENCIAS}{35}
+\contentsline {chapter}{\numberline {6}\MakeUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{38}
+\contentsline {section}{\numberline {6.1}\MakeUppercase {Conclus\IeC {\~o}es}}{38}
+\contentsline {section}{\numberline {6.2}\MakeUppercase {Trabalhos Futuros}}{38}
+\contentsline {chapter}{REFER\^ENCIAS}{39}

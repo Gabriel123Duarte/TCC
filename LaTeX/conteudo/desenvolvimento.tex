@@ -291,7 +291,7 @@ Sendo o \textit{array} $v_{1}, v_{2}, ..., v_{k}$ representando as posições de
 \begin{equation}
 dp[i][j] =
 \begin{cases}
-0 &\text{se } j-i \leq 2 \\
+0 &\text{se } j-i \leq 1 \\
 min_{i < x < j}(dp[i][x] + dp[x][j] + v[j] - v[i]) &
 \end{cases}
 \label{eq:knuthBruto}
@@ -393,13 +393,113 @@ min_{1 \leq j \leq i}(dp[j-1] + (v[i] - v[j])^2 + c) &
 \label{eq:chtBruto}
 \end{equation}
 
+Para o cálculo de cada estado $i$ da tabela, é necessário percorrer todos os índices que estão a sua direita, com a finalidade de escolher algum ponto onde seria colocado o início da cobertura. Devido a isto, a complexidade de cada estado fica $O(n)$ e a complexidade para o cálculo de todos os $n$ estados fica $O(n^2)$. A solução para o problema estará em $dp[n]$. 
 
 \item \textbf{Análise de particularidades:}
+Através do código ingênuo elaborado, pode-se notar que um dos motivos da solução não ficar tão rápida, é o fato de que, para resolver cada estado é necessário percorrer todos os outros que possuem um índice menor. Porém, ao expandir a equação de custo de cada estado, algumas propriedades importantes podem ser notadas.
+$dp[j-1] + (v[i] - v[j])^2 + c = -2*v[j]*v[i] + v[j]^2 + dp[j-1] + v[i]^2 + c$. Para melhor clareza será substituído $v[i]$ por $x$ e $v[j]$ por $y$, assim resultando em:
+$-2*y*x + y^2 + dp[j-1] + x^2 + c$, além disso, se for definido $a = -2*y$ e $b = y^2 + dp[j-1]$, é possível verificar que para o cálculo de um estado $i$, a iteração que é necessária para encontrar o mínimo, está tentando exatamente minimizar a função $f(x) = ax + b$, que pode ser vista graficamente como uma meia parábola, pois os valores de $x$ são apenas inteiros positivos. A $f(x)$ não contempla os valores de $x^2$ e $c$, pois estes serão somados para qualquer parábola selecionada, assim não há necessidade de tentar minimizá-los.
+
 \item \textbf{Convex Hull Trick:}
+Imaginemos que diversas equações lineares são dadas, todas da forma $f(x) = ax + b$ e diversas consultas são efetuadas, onde para cada uma delas é necessário informar qual o menor valor que uma $f(x)$ possui para um determinado $x$ se este for avaliado para todas as equações\footnote{https://wcipeg.com/wiki/Convex\_hull\_trick}. 
+Como exemplo imaginemos quatro funções, $f(x) = 4$, $f(x) = \frac{4}{3} + \frac{2}{3}x$, $f(x) = 12 - 3x$ e $f(x) = 3 - \frac{1}{2}x$ e é desejável descobrir qual destas minimizam o valor de $x = 1$. A figura \ref{fig:chtplot} mostra graficamente a distribuição destas equações que podem ser vistas como restas no plano.
+
+\begin{figure}[H]
+	\centering
+	\caption[Equações lineares graficamente]{Equações lineares graficamente}
+	\includegraphics[width=0.5\textwidth]{chtPlot.png} % <- formatos PNG, JPG e PDF
+	\label{fig:chtplot}
+\end{figure}
+\fonte{PEGWIKI, 2016\nocite{Wcipeg2016}}
+
+Para consultar o valor de $x = 1$, que está representado no gráfico acima através da linha vermelha, é possível ver que a reta que gera o menor valor possível é a que está pontilhada com traços grossos, sendo esta a $f(x) = \frac{4}{3} + \frac{2}{3}x$. Analisando esta figura, algumas características importantes podem ser observadas, como é o caso da reta $f(x) = 4$, esta claramente nunca será escolhida, independente do valor de $x$, pois sempre haverá alguma outra que possui um valor menor. Dentre as outras três retas, é possível ver que elas são importantes, pois para algum valor de $x$ elas possuem o menor valor de $f(x)$, isto pode ser visto como a parte em verde pintada nas retas, a qual mostra o intervalo de valores de $x$ onde cada reta é a melhor escolha.
+Com a informação de até que ponto uma determinada reta é ótima, elas podem ser ordenadas e cada consulta pode ser resolvida através de uma busca binária\footnote{http://www.geeksforgeeks.org/binary-search/}, onde para cada momento um valor é testado e decidido se a reta ótima para o $x$ em questão está a direita ou a esquerda desta, assim cada consulta teria a complexidade $O(log n)$, sendo $n$ o total de retas.
+
+Uma forma de resolver seria adicionar todas as retas em alguma estrutura de dados, ordená-las pela angulação e depois realizar as consultas. Porém, nem sempre as retas estão disponíveis de antemão, assim, se utilizado a ideia de sempre que adicionar uma nova reta for necessário ordenar todas elas, o algoritmo ficaria com a complexidade $O(n^2*log n)$.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Sugere-se ao leitor pensar em uma maneira mais eficaz de adicionar uma nova reta} \\\textit{no conjunto.}};
+\\
+
+Partindo do princípio que o conjunto de retas está devidamente ordenado e é necessário inserir mais um reta com angulação maior das já presentes, ao realizar essa operação, alguns casos podem acontecer:
+\\
+1º) A nova reta não é melhor que nenhuma outra que já estava presente, sendo assim, não há necessidade de incluir esta no conjunto; 
+\\
+2º) A nova reta é melhor do que algumas outras a partir de algum de valor de $x$;e
+\\
+3º) A nova reta é melhor que alguma reta em todos os pontos onde esta era ótima, portanto, não é necessário mais manter aquela reta. \\
+Com esses casos, um algoritmo mais eficiente pode ser pensado, onde será mantido uma pilha\footnote{http://www.geeksforgeeks.org/stack-data-structure/}, com todas as retas que ainda são ótimas em algum ponto e no seu topo possui a última que foi adicionada. Quando for inserida uma nova reta, basta verificar se a que estava no topo ainda será útil, caso seja, a nova reta é inserida, mas se não for, pode-se realizar um $pop()$ da pilha e ir repetindo este passo até que a pilha esteja vazia, ou que uma reta que ainda é útil for encontrada.
+
+Para determinar o momento que uma reta não é mais relevante e precisa ser removida da pilha, basta verificar se o ponto de intersecção da reta que está sendo inserida no momento com a penúltima reta está a esquerda do ponto de intersecção da penúltima e última reta incluída. Caso isto ocorra, a última reta pode ser removida, pois a partir de agora ela se torna irrelevante. Com essas propriedades é notório que cada reta pode ser adicionada ou removida apenas uma vez, deixando assim a complexidade total $O(n)$ para incluir todas.
+\\
+Esta técnica possui algumas variações e pode-se destacar três delas:
+
+\textit{\textbf{Convex Hull Trick 1:}}  Nesta versão, as consultas realizadas são feitas de maneira crescente, ou seja, $x_{1}, x_{2}, ..., x_{n}$, portanto, pode ser mantido um ponteiro $p_{i}$, que informa em qual reta estava a resposta para a consulta $x_{i}$, assim quando for necessário descobrir a resposta para a consulta $x_{i+1}$, só é necessário verificar as retas a partir do $p_{i} + 1$. Além disso, todas as retas serão inseridas de maneira ordenada. Isso faz com que todas as consultas sejam respondidas em $O(q + n)$, onde $q$ é o número de consultas e $n$ é o total de retas, isto se deve ao fato de que cada reta será avaliada apenas uma vez, no momento que para alguma consulta esta não for a melhor, é impossível em algum momento ela se tornar ótima.
+
+\textit{\textbf{Convex Hull Trick 2:}} Esta variação é similar com a primeira, porém, as consultas não estão ordenadas, assim, se faz necessário o uso da busca binária, deixando a complexidade em $O(q*log n)$.
+
+\textit{\textbf{Convex Hull Trick 3:}} Nesta versão não há garantias que as retas serão inseridas de forma ordenada, assim, a solução proposta utilizando pilha não funciona mais, portanto, é preciso uma outra estrutura de dados. Com o intuito de deixar a complexidade o mais baixo possível pode ser utilizado uma árvore balanceada para manter as retas ordenadas.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Fica como sugestão ao leitor pensar em uma maneira de resolver esta variação.}};
+\\
+
+
 \item \textbf{Benefícios:}
+Apesar da técnica demostrada realizar operações em retas, é possível utilizá-la no problema proposto, onde estão são parábolas, mas, como visto na etapa de análise de particularidades, as funções de custo tem a forma $f(x) = ax + b$, ou seja, pode ser descrito da mesma maneira de uma reta, podendo assim ser aplicado neste problema. Como pode ser notado, para resolver o estado $i$, só as retas menores que $i$ são importantes, assim, pode ser inserido a reta relacionado a este estado no momento que ele for resolvido. Devido a solução ingênua elaborada e a ordenação do \textit{array} $v$, é possível ver que as retas inseridas e as consultas realizadas serão feitas de maneira ordenada, portanto pode ser usado a variação 1 do \textit{Convex Hull Trick}. Ao aplicar a otimização, a complexidade será reduzida para $O(n + n) = O(n)$.
 \item \textbf{Código final:}
-\end{itemize}
-\begin{itemize}
-	\item URI 2481
+O algoritmo abaixo apresenta a implementação para o problema. Para obter a resposta basta preencher o \textit{array v} com as posições que necessitam de cobertura, este deverá estar com índices entre $1...n$. Ao chamar a função $cht()$, passando como parâmetro a quantidade de elementos e a constante, será devolvido o custo mínimo para realizar a cobertura de todos os pontos.
+\\
+
+\tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
+{\textit{Fica como sugestão ao leitor resolver o problema Covered Walkway} \\\textit{do site Kattis.com}};
+
+\begin{lstlisting}[caption={Implementação Convex Hull Trick 1},label={lst:cht}]
+#define MAXN 10
+#define inf 99999999
+int v[MAXN] = {0, 1, 3, 8, 10};
+int dp[MAXN];
+int A[MAXN], B[MAXN];
+int tam, ponteiro;
+
+int quadrado(int x){ return x*x; }
+
+void adicionarLinha(int a, int b){
+	while(tam >= 2 && 
+			(B[tam-2] - B[tam-1]) * (a-A[tam-1]) >=
+			 (B[tam-1]-b) * (A[tam-1]-A[tam-2]))
+		tam--;
+	A[tam] = a;
+	B[tam] = b;
+	tam++;
+}
+
+int consultar(int x){
+	ponteiro = min(ponteiro, tam-1);
+	while(ponteiro+1 < tam && 
+		A[ponteiro+1]*x+B[ponteiro+1] <= A[ponteiro]*x + B[ponteiro])
+		ponteiro++;
+	return A[ponteiro]*x + B[ponteiro];
+}
+
+int cht(int n, int c){
+	// Inicializando a pilha do Convex Hull Trick
+	ponteiro = tam = 0;
+	
+	// Caso base
+	dp[0] = 0;
+	adicionarLinha(-2*v[1], quadrado(v[1]));
+	for(int i = 1; i <= n; i++){
+		dp[i] = consultar(v[i]) + quadrado(v[i]) + c;
+		if(i < n)
+			adicionarLinha(-2*v[i+1], quadrado(v[i+1])+dp[i]);
+	}
+	return dp[n];
+}
+
+
+\end{lstlisting}
 \end{itemize}
 
