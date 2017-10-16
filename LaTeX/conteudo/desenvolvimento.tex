@@ -151,7 +151,7 @@ int lis(int n){
 }
 \end{lstlisting}
 \end{itemize}
-\section{Divide and Conquer Optimization}
+\section{\textit{Divide and Conquer Optimization}}
 \begin{itemize}
 \item \textbf{Problema:}
 São dados $n$ objetos, cada um com um valor associado $x_{1}, x_{2}, x_{3}, ..., x_{n}$, onde $x_{i} > 0 _{\forall{i}}$ e é necessário dividi-los em $k$ grupos consecutivos, porém é necessário que esta divisão seja feita com o menor custo possível. O custo para criação de um grupo é igual a soma dos valores de todos elementos do grupo multiplicado pela quantidade de objetos.
@@ -180,7 +180,7 @@ min_{l < j}(dp[i-1][l] + C[l+1][j]) &\text{se } i > 1
 \item \textbf{Análise de particularidades:} 
 Se for definido uma matriz $opt[i][j]$ que representa qual é o $l$ ótimo para realizar a divisão da $dp[i][j]$, ou seja, o ponto ótimo que minimiza o valor daquele estado, é possível notar que para qualquer $i$ e $j$, $opt[i][j] \leq opt[i][j+1]$, portanto, $j$ é monotônico\footnote{https://en.wikipedia.org/wiki/Monotonic\_function} para um $i$ fixo. Isto é verdade pois ao inserir um novo objeto em um grupo o valor deste só poderá aumentar, devido a formulação da função de custo. Assim, um conjunto com $x+1$ elementos não poderá ter um ponto ótimo de divisão menor do que este mesmo conjunto com $x$ elementos.
 
-\item \textbf{Divide and Conquer Optimization:} Devido a monotonicidade de $opt$, pode-se melhorar a complexidade da solução proposta, pois como observado, para calcular o estado ($i$, $j+1$), não é necessário testar valores de $l$ que são menores do que $opt[i][j]$, mas sim só é necessário os valores que são maiores ou iguais a $opt[i][j]$. Para a implementação desta técnica podemos recorrer a divisão e conquista\footnote{https://pt.wikipedia.org/wiki/Divisão\_e\_conquista}, onde pode-se criar uma função recursiva que para um $i$ fixo, é aplicado a divisão e conquista no $j$, sendo mantido o intervalo do $j$ e o intervalo válido de $l$, que representa o ponto ótimo.
+\item \textbf{\textit{Divide and Conquer Optimization}:} Devido a monotonicidade de $opt$, pode-se melhorar a complexidade da solução proposta, pois como observado, para calcular o estado ($i$, $j+1$), não é necessário testar valores de $l$ que são menores do que $opt[i][j]$, mas sim só é necessário os valores que são maiores ou iguais a $opt[i][j]$. Para a implementação desta técnica podemos recorrer a divisão e conquista\footnote{https://pt.wikipedia.org/wiki/Divisão\_e\_conquista}, onde pode-se criar uma função recursiva que para um $i$ fixo, é aplicado a divisão e conquista no $j$, sendo mantido o intervalo do $j$ e o intervalo válido de $l$, que representa o ponto ótimo.
 
 \item \textbf{Benefícios:} Ao calcular o valor e o ponto ótimo $x$ para um estado $j$, a divisão em conquista se responsabilizará por chamar a recursão para resolver o estado $j-1$ com o intervalo de $l$ variando de $1..x$ e a recursão para o estado $j+1$ com o $l$ entre $x..n$, assim é perceptível que o intervalo de busca do ponto ótimo que no início era $0..n$, foi dividido pela metade, e este é exatamente o pior caso, quando o ótimo está exatamente no meio. Portanto para calcular um estado $j$ para um $i$ fixo, a complexidade é $O(n*logn)$, bem menor do que a solução ingênua que gastava $O(n^2)$ para cada $i$. Sendo assim, a complexidade final ao aplicar esta técnica neste problema fica $O(k*n*logn)$.
 \item \textbf{Código final:} A seguir é apresentado um código que resolve este problema. Para obter a solução basta chamar a função $divideAndConquer()$, passando como parâmetro o total de elementos e a quantidade de grupos desejados.
@@ -239,7 +239,7 @@ int divideAndConquer(int n, int k){
 
 \end{lstlisting}
 \end{itemize}
-\section{Knuth Optimization}
+\section{\textit{Knuth Optimization}}
 \begin{itemize}
 \item \textbf{Problema:}
 Uma \textit{string} é dada e deseja-se realizar alguns cortes nela. A cada corte feito, ela será dividida em duas partes e terá um custo associado para fazer tal operação, que é igual exatamente ao tamanho original antes de efetuar o corte. Imaginemos a \textit{string} \enquote{knuthoptimization} que possui $17$ caracteres e é preciso realizar os cortes nos índices 2, 6 e 8, levando em consideração que a \textit{string} está indexada começando em $1$.
@@ -314,7 +314,7 @@ Essa equação implica que todos os subintervalos possuem um custo menor ou igua
 {\textit{Sugere-se ao leitor avançar para a próxima parte da otimização apenas quando tiver} \\\textit{entendido a condição de monotonicidade do problema.}};
 \\
 
-\item \textbf{Knuth Optimization:} 
+\item \textbf{\textit{Knuth Optimization}:} 
 Devido a monotonicidade da função custo, é possível definir uma matriz $opt[i][j]$ que representa qual o menor $x$ que gera a melhor solução para a $dp[i][j]$, ou seja, o ponto ótimo para realizar o corte. É possível notar que qualquer par de $i$ e $j$, onde $i \leq j$ a propriedade mostrada na equação \ref{eq:optKnuth} é mantida.
 
 \begin{equation}
@@ -371,7 +371,7 @@ int knuthOptimization(int n, int k){
 \end{itemize}
 
 \newpage
-\section{Convex Hull Trick}
+\section{\textit{Convex Hull Trick}}
 \begin{itemize}
 \item \textbf{Problema:}
 Uma estrada está sendo construída e é necessário cobrir $n$ pontos dela. O custo para se cobrir um pedaço da estrada que vai do ponto $x$ até o ponto $y$, é definido como sendo $(x-y)^2 + c$, onde $c$ uma constante qualquer. Para exemplificar, vamos supor o \textit{array} $v = \{1, 3, 8, 10\}$, que representa os pontos que precisam de cobertura, além disso, o valor da constante $c$ é 5. Portanto, uma solução possível seria realizar a cobertura do ponto 1 até o 8, com o custo de $(1-8)^2 + 5 = 54$ e uma cobertura única no ponto 10, totalizando $(10-10)^2 + 5 = 5$. Para tal configuração, o valor total para cobrir os 4 pontos seria de 59. O objetivo deste problema é encontrar o custo mínimo para realizar a cobertura.
@@ -400,7 +400,7 @@ Através do código ingênuo elaborado, pode-se notar que um dos motivos da solu
 $dp[j-1] + (v[i] - v[j])^2 + c = -2*v[j]*v[i] + v[j]^2 + dp[j-1] + v[i]^2 + c$. Para melhor clareza será substituído $v[i]$ por $x$ e $v[j]$ por $y$, assim resultando em:
 $-2*y*x + y^2 + dp[j-1] + x^2 + c$, além disso, se for definido $a = -2*y$ e $b = y^2 + dp[j-1]$, é possível verificar que para o cálculo de um estado $i$, a iteração que é necessária para encontrar o mínimo, está tentando exatamente minimizar a função $f(x) = ax + b$, que pode ser vista graficamente como uma meia parábola, pois os valores de $x$ são apenas inteiros positivos. A $f(x)$ não contempla os valores de $x^2$ e $c$, pois estes serão somados para qualquer parábola selecionada, assim não há necessidade de tentar minimizá-los.
 
-\item \textbf{Convex Hull Trick:}
+\item \textbf{\textit{Convex Hull Trick}:}
 Imaginemos que diversas equações lineares são dadas, todas da forma $f(x) = ax + b$ e diversas consultas são efetuadas, onde para cada uma delas é necessário informar qual o menor valor que uma $f(x)$ possui para um determinado $x$ se este for avaliado para todas as equações\footnote{https://wcipeg.com/wiki/Convex\_hull\_trick}. 
 Como exemplo imaginemos quatro funções, $f(x) = 4$, $f(x) = \frac{4}{3} + \frac{2}{3}x$, $f(x) = 12 - 3x$ e $f(x) = 3 - \frac{1}{2}x$ e é desejável descobrir qual destas minimizam o valor de $x = 1$. A figura \ref{fig:chtplot} mostra graficamente a distribuição destas equações que podem ser vistas como restas no plano.
 

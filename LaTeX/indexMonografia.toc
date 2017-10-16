@@ -1,5 +1,5 @@
 \select@language {brazil}
-\contentsline {chapter}{\numberline {1}\MakeUppercase {Introdu\c {c}\~ao}}{12}
+\contentsline {chapter}{\numberline {1}\MakeUppercase {Introdu\c {c}\~ao}}{11}
 \contentsline {chapter}{\numberline {2}\MakeUppercase {Fundamenta\IeC {\c c}\IeC {\~a}o Te\IeC {\'o}rica}}{13}
 \contentsline {section}{\numberline {2.1}\MakeUppercase {Complexidade de Algoritmos}}{13}
 \contentsline {section}{\numberline {2.2}\MakeUppercase {Programa\IeC {\c c}\IeC {\~a}o din\IeC {\^a}mica}}{14}
@@ -10,9 +10,9 @@
 \contentsline {chapter}{\numberline {5}\MakeUppercase {Desenvolvimento (Alterar Nome) }}{22}
 \contentsline {section}{\numberline {5.1}\MakeUppercase {Redu\IeC {\c c}\IeC {\~a}o de espa\IeC {\c c}o}}{22}
 \contentsline {section}{\numberline {5.2}\MakeUppercase {Estrutura de dados RMQ}}{24}
-\contentsline {section}{\numberline {5.3}\MakeUppercase {Divide and Conquer Optimization}}{26}
-\contentsline {section}{\numberline {5.4}\MakeUppercase {Knuth Optimization}}{29}
-\contentsline {section}{\numberline {5.5}\MakeUppercase {Convex Hull Trick}}{33}
+\contentsline {section}{\numberline {5.3}\MakeUppercase {\textit {Divide and Conquer Optimization}}}{26}
+\contentsline {section}{\numberline {5.4}\MakeUppercase {\textit {Knuth Optimization}}}{29}
+\contentsline {section}{\numberline {5.5}\MakeUppercase {\textit {Convex Hull Trick}}}{33}
 \contentsline {chapter}{\numberline {6}\MakeUppercase {Considera\IeC {\c c}\IeC {\~o}es Finais}}{38}
 \contentsline {section}{\numberline {6.1}\MakeUppercase {Conclus\IeC {\~o}es}}{38}
 \contentsline {section}{\numberline {6.2}\MakeUppercase {Trabalhos Futuros}}{38}

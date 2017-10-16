@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  9 OCT 2017 17:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  16 OCT 2017 20:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1359,60 +1359,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--13
  [5
 
 ]
-(./indexMonografia.lsb)
-\tf@lsb=\write6
-\openout6 = `indexMonografia.lsb'.
+(./indexMonografia.lsg)
+\tf@lsg=\write6
+\openout6 = `indexMonografia.lsg'.
 
  [6
 
-] (./indexMonografia.lsg)
-\tf@lsg=\write7
-\openout7 = `indexMonografia.lsg'.
-
- [7
-
 ] (./indexMonografia.lol)
-\tf@lol=\write8
-\openout8 = `indexMonografia.lol'.
+\tf@lol=\write7
+\openout7 = `indexMonografia.lol'.
 
-(./pretextuais/resumo.tex [8
+ (./pretextuais/resumo.tex
+[7
 
-] [9
-
-
-]) (./pretextuais/abstract.tex [10
+] [8
 
 
-])
-(./indexMonografia.toc)
-\tf@toc=\write9
-\openout9 = `indexMonografia.toc'.
+]) (./pretextuais/abstract.tex [9
 
- [11
 
-] (./conteudo/introducao.tex
+]) (./indexMonografia.toc)
+\tf@toc=\write8
+\openout8 = `indexMonografia.toc'.
+
+ [10
+
+]
+(./conteudo/introducao.tex
 Cap\'{\i }tulo 1.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 21.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
-)
-(./conteudo/fundamentacao.tex [12
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
+[11
 
 
 ]
+Underfull \hbox (badness 1308) in paragraph at lines 13--14
+\T1/ptm/m/n/12 di-nâ-mica, com-ple-xi-dade de al-go-rit-mos e oti-mi-za-ção. Al
+ém disso, neste ca-pí-tulo são
+ []
+
+) (./conteudo/fundamentacao.tex [12]
 Cap\'{\i }tulo 2.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
 [13
 
-] <./figuras/complexity.png, id=60, 552.0625pt x 320.19624pt>
+] <./figuras/complexity.png, id=59, 552.0625pt x 320.19624pt>
 File: ./figuras/complexity.png Graphic file (type png)
 
 <use ./figuras/complexity.png>
@@ -1444,7 +1438,15 @@ Underfull \hbox (badness 4686) in paragraph at lines 132--132
 \T1/ptm/m/n/12 ne-ces-sá-rio para se re-sol-ver o es-tado atual, re-du-zindo a
  []
 
-[17] [18]
+[17]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 151.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 151.
+ [18]
 Underfull \hbox (badness 1365) in paragraph at lines 179--181
 []\T1/ptm/m/n/12 Vihavainen, Pak-sula e Lu-uk-kai-nen (2011), dis-cu-tem como e
 n-si-nar o bá-sico de
@@ -1517,6 +1519,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--167
  []
 
 [26]
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 183.
+
 Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
@@ -1528,9 +1533,6 @@ Overfull \hbox (2.42328pt too wide) in paragraph at lines 199--200
  []
 
 [28]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 254.
-
 Underfull \hbox (badness 10000) in paragraph at lines 280--282
 
  []
@@ -1606,9 +1608,9 @@ Overfull \hbox (8.7218pt too wide) in paragraph at lines 482--483
 Cap\'{\i }tulo 6.
 ) (./indexMonografia.bbl [38
 
-]) [39
+] [39
 
-] [1] 
+]) [40] [1] 
 AED: lastpage setting LastPage
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
@@ -1620,10 +1622,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24956 strings out of 494929
- 461826 string characters out of 6180142
- 587796 words of memory out of 5000000
- 27701 multiletter control sequences out of 15000+600000
+ 24965 strings out of 494929
+ 461989 string characters out of 6180142
+ 588874 words of memory out of 5000000
+ 27712 multiletter control sequences out of 15000+600000
  53335 words of font info for 98 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  55i,13n,58p,10414b,1755s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1636,10 +1638,10 @@ lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on indexMonografia.pdf (43 pages, 251725 bytes).
+Output written on indexMonografia.pdf (44 pages, 260113 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
+ 261 PDF objects out of 1000 (max. 8388607)
+ 133 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
