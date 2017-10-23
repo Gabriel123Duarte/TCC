@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  18 OCT 2017 13:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  23 OCT 2017 16:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1208,6 +1208,14 @@ Package csquotes Info: ... configuration file loaded successfully.
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip76
+\enit@outerparindent=\dimen277
+\enit@toks=\toks48
+\enit@inbox=\box89
+\enitdp@description=\count190
+)
 (./pretextuais/capa.tex)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1220,39 +1228,39 @@ LaTeX Warning: Label `lst:lis' multiply defined.
 )
 \openout1 = `indexMonografia.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 119.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 114.
+(lastpage)             ! on input line 119.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count190
-\scratchdimen=\dimen277
-\scratchbox=\box89
-\nofMPsegments=\count191
-\nofMParguments=\count192
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count193
-\MPscratchDim=\dimen278
-\MPnumerator=\count194
-\makeMPintoPDFobject=\count195
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count191
+\scratchdimen=\dimen278
+\scratchbox=\box90
+\nofMPsegments=\count192
+\nofMParguments=\count193
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count194
+\MPscratchDim=\dimen279
+\MPnumerator=\count195
+\makeMPintoPDFobject=\count196
+\everyMPtoPDFconversion=\toks50
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -1285,49 +1293,49 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count196
+\c@lstlisting=\count197
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 122.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 128.
 LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 12
-2.
+8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 12
-2.
+8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 12
-2.
+8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 12
-2.
+8.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 122.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 128.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 122.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 122.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 122.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 128.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 3000) in paragraph at lines 123--123
+Underfull \hbox (badness 3000) in paragraph at lines 129--129
 \T1/ptm/m/n/12 UNI-FESO como re-qui-sito obri-ga-tó-rio para
  []
 
@@ -1394,18 +1402,18 @@ Underfull \hbox (badness 1983) in paragraph at lines 2--3
 (./conteudo/introducao.tex
 Cap\'{\i }tulo 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
 [11
 
 
 ]
-Underfull \hbox (badness 1308) in paragraph at lines 13--14
-\T1/ptm/m/n/12 di-nâ-mica, com-ple-xi-dade de al-go-rit-mos e oti-mi-za-ção. Al
-ém disso, neste ca-pí-tulo são
+Underfull \hbox (badness 1092) in paragraph at lines 14--15
+\T1/ptm/m/n/12 prin-ci-pais as-sun-tos ne-ces-sá-rios para o me-lhor com-pre-en
+-di-mento das téc-ni-cas, que são:
  []
 
 ) (./conteudo/fundamentacao.tex [12]
@@ -1419,132 +1427,118 @@ File: ./figuras/complexity.png Graphic file (type png)
 Package pdftex.def Info: ./figuras/complexity.png used on input line 49.
 (pdftex.def)             Requested size: 318.66948pt x 184.8345pt.
  [14 <./figuras/complexity.png (PNG copy)>]
+Underfull \hbox (badness 1173) in paragraph at lines 67--68
+[]\T1/ptm/m/n/12 A sequên-cia pode ser re-pre-sen-tada atra-vés da se-guinte re
+-cor-rên-cia, onde $\OML/ztmcm/m/it/12 fib\OT1/ztmcm/m/n/12 (\OML/ztmcm/m/it/12
+ i\OT1/ztmcm/m/n/12 )$
+ []
+
 <./figuras/fib5.png, id=66, 619.31375pt x 360.34625pt>
 File: ./figuras/fib5.png Graphic file (type png)
 
 <use ./figuras/fib5.png>
-Package pdftex.def Info: ./figuras/fib5.png used on input line 79.
+Package pdftex.def Info: ./figuras/fib5.png used on input line 80.
 (pdftex.def)             Requested size: 318.66948pt x 185.42368pt.
  [15 <./figuras/fib5.png>]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 88.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 89.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 89.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 90.
  [16]
-Underfull \hbox (badness 2134) in paragraph at lines 132--132
+Underfull \hbox (badness 2134) in paragraph at lines 133--133
 []|\T1/ptm/m/n/12 Realiza di-vi-são e con-quista para en-con-trar o ponto ótimo
 
  []
 
 
-Underfull \hbox (badness 4686) in paragraph at lines 132--132
+Underfull \hbox (badness 4686) in paragraph at lines 133--133
 \T1/ptm/m/n/12 ne-ces-sá-rio para se re-sol-ver o es-tado atual, re-du-zindo a
  []
 
 [17]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 151.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 152.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 151.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 152.
  [18]
-Underfull \hbox (badness 1365) in paragraph at lines 179--181
+Underfull \hbox (badness 1365) in paragraph at lines 180--181
 []\T1/ptm/m/n/12 Vihavainen, Pak-sula e Lu-uk-kai-nen (2011), dis-cu-tem como e
 n-si-nar o bá-sico de
  []
 
-) (./conteudo/historico.tex [19]
+[19]) (./conteudo/historico.tex [20]
 Cap\'{\i }tulo 3.
-) (./conteudo/metodologia.tex [20
+) (./conteudo/metodologia.tex [21
 
 ]
 Cap\'{\i }tulo 4.
-
-Underfull \hbox (badness 1231) in paragraph at lines 14--15
-\T1/ptm/m/n/12 as ca-rac-te-rís-ti-cas do pro-blema, sendo elas a forma que os 
-cál-cu-los es-tão sendo
- []
-
-
-Underfull \hbox (badness 1253) in paragraph at lines 16--17
-[]\T1/ptm/b/n/12 Benefícios: \T1/ptm/m/n/12 Tendo apli-cado a oti-mi-za-ção, um
-a aná-lise dos be-ne-fí-cios será feita
- []
-
-) (./conteudo/desenvolvimento.tex [21
-
-]
-Cap\'{\i }tulo 5.
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--12
-
- []
-
-
-Overfull \hbox (9.04799pt too wide) detected at line 21
-\OML/ztmcm/m/it/12 dp\OT1/ztmcm/m/n/12 [\OML/ztmcm/m/it/12 i\OT1/ztmcm/m/n/12 ]
-[\OML/ztmcm/m/it/12 j\OT1/ztmcm/m/n/12 ] = []
- []
-
 [22
 
+]) (./conteudo/desenvolvimento.tex [23]
+Cap\'{\i }tulo 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--13
+
+ []
+
+[24
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 47--49
-
- []
-
-
-Overfull \hbox (2.42328pt too wide) in paragraph at lines 68--69
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][]  
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
-
- []
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 111--113
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--167
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
 [26]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 183.
+Overfull \hbox (1.6604pt too wide) in paragraph at lines 112--114
+[][] 
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--188
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--114
 
  []
 
 [27]
-Overfull \hbox (2.42328pt too wide) in paragraph at lines 199--200
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]  
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
+
  []
 
 [28]
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 184.
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--189
+
+ []
+
+[29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 280--282
 
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 284--286
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
 
  []
 
@@ -1553,88 +1547,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--312
 
  []
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 314--316
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 326--328
+
+ []
+
+[33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 372--375
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--332
+Underfull \hbox (badness 10000) in paragraph at lines 377--379
 
  []
 
-[31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 376--379
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--383
-
- []
-
-[33] <./figuras/chtPlot.png, id=130, 614.295pt x 794.97pt>
+[35] <./figuras/chtPlot.png, id=137, 614.295pt x 794.97pt>
 File: ./figuras/chtPlot.png Graphic file (type png)
 
 <use ./figuras/chtPlot.png>
-Package pdftex.def Info: ./figuras/chtPlot.png used on input line 410.
+Package pdftex.def Info: ./figuras/chtPlot.png used on input line 406.
 (pdftex.def)             Requested size: 227.62206pt x 294.57098pt.
- [34 <./figuras/chtPlot.png>]
+ [36 <./figuras/chtPlot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 414--416
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 418--420
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 422--424
-
- []
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 442--444
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 440--442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 446--448
+Underfull \hbox (badness 10000) in paragraph at lines 444--446
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--455
+Underfull \hbox (badness 10000) in paragraph at lines 450--453
 
  []
 
-[36]
-Overfull \hbox (8.7218pt too wide) in paragraph at lines 482--483
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][]  
- []
-
-) (./conteudo/conclusao.tex [37]
+[38]) (./conteudo/conclusao.tex [39]
 Cap\'{\i }tulo 6.
-
-Underfull \hbox (badness 2932) in paragraph at lines 4--5
-[]\T1/ptm/m/n/12 Através da me-to-do-lo-gia pro-posta, esse tra-ba-lho trouxe t
-éc-ni-cas avan-ça-das de
- []
-
 )
-Underfull \hbox (badness 1546) in paragraph at lines 8--146
-[]\T1/ptm/m/n/12 Espera-se que este pro-jeto seja re-le-vante e útil para to-do
-s que ve-nham a ler,
+Underfull \hbox (badness 1163) in paragraph at lines 8--152
+[]\T1/ptm/m/n/12 Espera-se que este tra-ba-lho seja re-le-vante e útil para to-
+dos que ve-nham a ler,
  []
 
 
-Underfull \hbox (badness 1867) in paragraph at lines 8--146
-\T1/ptm/m/n/12 prin-ci-pal-mente as com-pe-ti-do-res de ma-ra-to-nas de pro-gra
--ma-ção, onde es-ses te-mas são
+Underfull \hbox (badness 1264) in paragraph at lines 8--152
+\T1/ptm/m/n/12 prin-ci-pal-mente aos com-pe-ti-do-res de ma-ra-to-nas de pro-gr
+a-ma-ção, onde es-ses te-mas são
  []
 
-(./indexMonografia.bbl [38
+(./indexMonografia.bbl [40
 
-] [39
+] [41
 
-]) [40] [1] 
+]) [42] [1] 
 AED: lastpage setting LastPage
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
@@ -1646,13 +1623,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 24965 strings out of 494929
- 461989 string characters out of 6180142
- 588730 words of memory out of 5000000
- 27712 multiletter control sequences out of 15000+600000
+ 25244 strings out of 494929
+ 466720 string characters out of 6180142
+ 598035 words of memory out of 5000000
+ 27987 multiletter control sequences out of 15000+600000
  53335 words of font info for 98 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 55i,13n,58p,10414b,1755s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,13n,58p,10414b,1811s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} </home/gabriel/.t
 exmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
@@ -1662,10 +1639,10 @@ lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on indexMonografia.pdf (44 pages, 261849 bytes).
+Output written on indexMonografia.pdf (46 pages, 263852 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
+ 267 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

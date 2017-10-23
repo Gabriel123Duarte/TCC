@@ -8,9 +8,9 @@ Neste capítulo, são apresentados os conceitos que servem de insumo para a elab
 
 \section{Complexidade de Algoritmos}
 \label{sec:complexidade}
-Na ciência da computação, analisar um algoritmo está relacionado com a identificação da quantidade de recursos necessários para sua execução, podendo ser a quantidade de memória utilizada, largura de banda de comunicação, hardware do computador. Porém mais frequentemente a preocupação maior é em se medir o tempo computacional gasto para realizar determinado código \cite{Cormen09a}.
+Na ciência da computação, analisar um algoritmo está relacionado com a identificação da quantidade de recursos necessários para sua execução, podendo ser a quantidade de memória utilizada, largura de banda de comunicação ou o uso do hardware do computador. Porém mais frequentemente a preocupação maior é em se medir o tempo computacional gasto para realizar determinado código \cite{Cormen09a}.
 
-Quando é feita a análise de complexidade, é possível identificar qual classe um determinado algoritmo pertence. A tabela \ref{tab:classes} lista algumas classes de forma ordenada, sendo a primeira função a melhor possível e a última a pior. Após classificar um algoritmo, é possível escolher entre diversas soluções para um mesmo problema, qual é a mais adequada no momento e poder saber antes de executar quanto tempo e memória o algoritmo irá gastar quando o tamanho da entrada for $n$, onde $n$ corresponde, geralmente a quantidade de elementos que devem processados. Na figura \ref{fig:complexity} é possível observar o comportamento de algumas funções na medida que a quantidade de elementos aumenta.
+Quando é feita a análise de complexidade, é possível identificar a qual classe um determinado algoritmo pertence. A tabela \ref{tab:classes} lista algumas classes de forma ordenada, sendo a primeira função a melhor possível, e a última, a pior. Após classificar um algoritmo, é possível escolher dentre diversas soluções para um mesmo problema, qual é a mais adequada no momento e poder saber, antes da execução, quanto tempo e memória o algoritmo irá gastar quando o tamanho da entrada for de tamanho $n$, onde $n$ corresponde, geralmente, à quantidade de elementos que devem processados. Na figura \ref{fig:complexity} é possível observar o comportamento de algumas funções na medida que a quantidade de elementos aumenta.
 
 
 \begin{table}[H]
@@ -28,7 +28,7 @@ Quando é feita a análise de complexidade, é possível identificar qual classe
 		$O(n^2)$ & \textit{Bubble sort}\protect\footnotemark \\ \hline \SPACE
 		$O(n^3)$ & \textit{Floyd-Warshall}\protect\footnotemark \\ \hline \SPACE
 		$O(n^c)$ & Encontrar o maior emparelhamento em um grafo \\ \hline \SPACE
-		$O(c^n)_{c > 1}$ & Resolver o problema do caixeiro viajante\protect\footnotemark com programação dinâmica \\ \hline \SPACE
+		$O(c^n)_{c > 1}$ & Resolver o problema do caixeiro viajante\protect\footnotemark \space com programação dinâmica \\ \hline \SPACE
 		$O(n!)$ & Resolver o problema do caixeiro viajante com força bruta \\ \hline
 	\end{tabular}
 
@@ -54,16 +54,17 @@ Quando é feita a análise de complexidade, é possível identificar qual classe
 \section{Programação dinâmica}
 \label{sec:pd}
 
-Programação dinâmica é uma técnica que combina soluções de subproblemas, da mesma maneira que a divisão e conquista, que divide o problema em subproblemas, resolve cada um recursivamente e depois é feita a junção das soluções para resolver o problema original. Porém este método é normalmente utilizado quando os subproblemas se sobrepõem, ou seja, um mesmo estado é encontrado diversas vezes na etapa de divisão. Portanto, se fosse aplicado um algoritmo ingênuo de divisão e conquista, um mesmo estado seria resolvido várias vezes, aumentando o custo computacional do algoritmo \cite{Cormen09a}. 
+Programação dinâmica é uma técnica que combina soluções de subproblemas, de forma similar à técnica de divisão e conquista, que divide o problema em subproblemas, resolve cada um recursivamente e depois faz a junção das soluções para resolver o problema original. Porém este método é normalmente utilizado quando os subproblemas se sobrepõem, ou seja, um mesmo estado é encontrado diversas vezes na etapa de divisão. Portanto, se fosse aplicado um algoritmo ingênuo de divisão e conquista, um mesmo estado seria resolvido várias vezes, aumentando o custo computacional do algoritmo \cite{Cormen09a}. 
 
-Para resolver o problema de sobreposição, a técnica de programação dinâmica salva a resposta de todos os estados que vão sendo encontrados. Assim, no momento que se deparar com algo que já foi resolvido ela simplesmente retorna o valor que já estava armazenado. 
+Para resolver o problema de sobreposição, a técnica de programação dinâmica salva a resposta de todos os estados que vão sendo encontrados. Assim, no momento em que se deparar com algo que já foi resolvido ela simplesmente retorna o valor que já estava armazenado. 
 
-A sequência de Fibonacci é um exemplo de fácil entendimento de quando é necessário a utilização de programação dinâmica. Esta é uma sequência de números inteiros que tem seu início com 0 e 1, os termos subsequentes são uma soma dos dois últimos números. A sequência recebeu o nome do matemático Leonardo de Pisa, mais conhecido como Fibonacci, que no ano de 1202 descreveu o crescimento da população de coelhos utilizando esta sequência \cite{LiveScience2013}. Os primeiros termos são:
+A sequência de Fibonacci é um exemplo de fácil entendimento de quando é necessária a utilização de programação dinâmica. Esta é uma sequência de números inteiros que tem seu início com 0 e 1, e os termos subsequentes são uma soma dos dois últimos números. A sequência recebeu o nome do matemático Leonardo de Pisa, mais conhecido como Fibonacci, que no ano de 1202 descreveu o crescimento da população de coelhos utilizando esta sequência \cite{LiveScience2013}. Os primeiros termos são:
 \begin{equation}
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, ...
 \label{eq:fib}
 \end{equation}
-podendo ser representada através da seguinte recorrência, onde $fib(i)$ representa $i$-ésimo termo da sequência:
+
+A sequência pode ser representada através da seguinte recorrência, onde $fib(i)$ representa $i$-ésimo termo da sequência:
 \begin{equation}
 fib(i)=
 \begin{cases}
@@ -114,11 +115,11 @@ Para mais informações sobre programação dinâmica e suas técnicas, o site \
 
 \subsection{Otimizações}
 
-Ao utilizar programação dinâmica para otimizar um problema, normalmente ocorre uma queda drástica na classe de complexidade associada a solução, como é o caso da sequência de Fibonacci, discutida na seção \ref{sec:pd}, onde foi possível sair de uma complexidade exponencial para uma linear. Apesar de parecer uma ótima forma de solucionar um problema, às vezes apenas aplicar programação dinâmica não é suficiente, e existem casos onde é possível e necessário otimizar ainda mais.
+Ao utilizar programação dinâmica para otimizar um problema, normalmente ocorre uma queda drástica na classe de complexidade associada à solução, como é o caso da sequência de Fibonacci, discutida na seção \ref{sec:pd}, onde foi possível sair de uma complexidade exponencial para uma linear. Apesar de parecer uma ótima forma de solucionar um problema, às vezes apenas aplicar programação dinâmica não é suficiente, e existem casos onde é possível e necessário otimizar ainda mais.
 
 Para utilizar uma técnica de otimização de programação dinâmica, alguns critérios em relação a função de recorrência devem ser correspondidos. Cada técnica tem uma abordagem que possibilita a resolução de um conjunto de problemas que compartilham certas propriedades.
 
-A tabela \ref{tab:otimizacoes} ilustra algumas formas otimizações existentes, que possibilitam tanto na redução de espaço, quanto de tempo. Estas técnicas serão discutidas no capítulo \ref{chap:desenvolvimento}.
+A tabela \ref{tab:otimizacoes} ilustra algumas otimizações existentes, que possibilitam tanto a redução de espaço, quanto de tempo. Estas técnicas serão discutidas no capítulo \ref{chap:desenvolvimento}.
 
 \begin{table}[H]
 	\centering
@@ -140,46 +141,45 @@ A tabela \ref{tab:otimizacoes} ilustra algumas formas otimizações existentes, 
 \section{Ensino de algoritmos}
 \label{sec:ensino}
 
-O ensino de algoritmos, por se tratar de assuntos que normalmente não são tão simples, com um fundamentação matemática extensa, não é uma tarefa fácil, portanto foi feita uma busca na literatura de trabalhos que têm por objetivo criar uma metodologia de ensino. Assim servindo de modelo para o que está aqui sendo desenvolvido.
+O ensino de algoritmos, por tratar de assuntos que normalmente não são tão simples, com uma fundamentação matemática extensa, não é uma tarefa fácil. Portanto, foi feita uma busca na literatura de trabalhos que têm por objetivo propor uma metodologia de ensino, servindo de modelo para este trabalho.
 
 
 \nocite{methods}
-Szlávi e Zsakó (2003) apresentaram diversas metodologias relacionadas ao ensino de programação. O autor discuti sobre alguns modelos e exemplifica quando e para qual nível de estudante cada método será mais proveitoso ao ser aplicado. Estes métodos determinam a forma de estruturar o curso que deseja ser ensinado e a maneira de explicar os conteúdos. Os métodos discutidos no trabalho são:
+Szlávi e Zsakó (2003) apresentaram diversas metodologias relacionadas ao ensino de programação. Os autores discutem sobre alguns modelos e exemplificam quando e para qual nível de estudante cada método será mais proveitoso ao ser aplicado. Estes métodos determinam a forma de estruturar o curso que deseja ser ensinado e a maneira de explicar os conteúdos. Os métodos discutidos no trabalho são:
 
-\begin{itemize}
+\begin{itemize}[leftmargin=-.001in]
 \itemsep0em
 \item \textbf{Metodológico, orientado a algoritmos:} Neste há uma divisão bem clara em todas as etapas do processo de programação, desde a estruturação do que será desenvolvido, até a documentação final. Este é recomendado para ser utilizado com estudantes no final do ensino médio ou que estejam se preparando para um trabalho na área de informática.
-\item \textbf{Orientado a dados}: Este método é similar ao anterior, porém aqui tem o foco nas estruturas de dados, assim, muitas vezes conseguindo evitar os grandes teoremas que normalmente são complexos.
-\item \textbf{Orientado a especificação:} A especificação da forma que o programa deve funcionar é a parte mais significativa, todos os algoritmos são gerados sistematicamente através das rígidas instruções. Método indicado para estudantes universitários de informática, pois este será bem sucedido se os alunos possuírem um profundo conhecimento matemático.
-\item \textbf{Orientado a problemas:} Este método possui grandes diferenças do outros, neste toda a etapa de programação é vista como uma única tarefa que não pode ser dividida. Dentre todos os métodos discutidos, este é o único recomendável para todos os tipos de estudantes, pois o foco é desenvolver nos alunos uma forma mais algorítmica de pensar sem estar preocupado com o treinamento profissional.
-\item \textbf{Orientado a linguagem:} Método semelhante ao orientado a problemas, porém o ensino dependente totalmente de uma linguagem de programação, todos os ensinamentos são voltados especificamente para a linguagem adotada. Devido a estes fatores esse método está desatualizado e não é tão útil nos dias atuais.
-\item \textbf{Orientado a instruções:} Semelhante ao orientado a linguagem, porém aqui é definido uma linguagem geral, uma forma de pseudocódigo.
-\item \textbf{Orientado a matemática:} Os problemas a serem resolvido com esta técnica, são retirados da matemática, onde cada problema individual é relacionado com algum outro utilizando os princípios básicos da matemática. Esta não é uma metodologia eficaz para o ensino de programação, porém o ensino de matemática com o auxílio de programação pode ser útil devido a forma de raciocínio que as duas áreas possuem.
+\item \textbf{Orientado a dados}: Este método é similar ao anterior, porém com foco nas estruturas de dados, assim, muitas vezes conseguindo evitar os grandes teoremas que normalmente são complexos e necessários para fazer a explicação dessas estruturas, propondo uma forma mais suave de transmitir o conhecimento.
+\item \textbf{Orientado à especificação:} A especificação da forma que o programa deve funcionar é a parte mais significativa, e todos os algoritmos são gerados sistematicamente através de rígidas instruções. Método indicado para estudantes universitários de informática, pois este será bem sucedido se os alunos possuírem um profundo conhecimento matemático.
+\item \textbf{Orientado a problemas:} Este método possui grandes diferenças do outros. Nele toda a etapa de programação é vista como uma única tarefa que não pode ser dividida. Dentre todos os métodos discutidos, este é o único recomendável para todos os tipos de estudantes, pois o foco é desenvolver nos alunos uma forma mais algorítmica de pensar sem estar preocupado com o treinamento profissional.
+\item \textbf{Orientado à linguagem:} Método semelhante ao orientado a problemas, porém o ensino dependente totalmente de uma linguagem de programação e todos os ensinamentos são voltados especificamente para a linguagem adotada. Devido a estes fatores esse método está desatualizado e não é tão útil nos dias atuais.
+\item \textbf{Orientado a instruções:} Semelhante ao orientado a linguagem, porém aqui é definida uma linguagem geral, uma forma de pseudocódigo.
+\item \textbf{Orientado à matemática:} Os problemas a serem resolvidos com esta técnica, são retirados da matemática, onde cada problema individual é relacionado com algum outro utilizando os princípios básicos da matemática. Esta não é uma metodologia eficaz para o ensino de programação, porém o ensino de matemática com o auxílio de programação pode ser útil devido à forma de raciocínio que as duas áreas possuem.
 
 \end{itemize}
 
 \nocite{doi:10.1076/csed.13.2.137.14200} 
-Uma ampla pesquisa na literatura com o foco na parte educacional do estudo de programação foi feita. Diversos métodos e tópicos foram identificados e analisados para poder ser realizado uma classificação, e assim, auxiliar os professores a identificar em seus alunos características comuns e padrões, que poderão ser contornados com base no que já foi realizado e está documentado na literatura, é mostrado por Robins, Rountree (2003).
+No trabalho de Robins e Rountree (2003), uma ampla pesquisa na literatura com o foco na parte educacional do estudo de programação foi feita. Diversos métodos e tópicos foram identificados e analisados para poder ser realizada uma classificação, e assim, auxiliar os professores a identificar em seus alunos características comuns e padrões, que poderão ser contornados com base no que já foi realizado e está documentado na literatura.
 
 \nocite{Pears:2007:SLT:1345443.1345441}
-Pears \textit{et al.} (2007) desenvolveu um \textit{survey} que reúne algumas formas da literatura de ensinar a introdução de programação. Além disso, os trabalhos reunidos, foram classificados e agrupados pela forma de ensino e pelos métodos aplicados.
+Pears \textit{et al.} (2007) desenvolveu um \textit{survey} que reúne algumas formas da literatura de ensinar introdução à programação. Além disso, os trabalhos reunidos, foram classificados e agrupados pela forma de ensino e pelos métodos aplicados.
 
 
 \nocite{teachingapplications} 
-Zsakó e Nóra (2008) realizaram uma análise nos principais métodos e aplicações que auxiliam no aprendizado e no ensino dos tópicos de\sigla{ICT}{Information and Communication Technology}(do inglês, \textit{Information and Communication Technology}). Para cada método é exemplificado o seu funcionamento, como realizar a sua aplicação e para qual nível de estudante ele é mais apropriado. 
+Zsakó e Nóra (2008) realizaram uma análise dos principais métodos e aplicações que auxiliam no aprendizado e no ensino dos tópicos de\sigla{ICT}{Information and Communication Technology}(do inglês, \textit{Information and Communication Technology}). Para cada método é exemplificado o seu funcionamento, como realizar a sua aplicação e para qual nível de estudante ele é mais apropriado. 
 
 
 \nocite{teachingapplicationslanguages} 
-No trabalho desenvolvido por Papp-varga, Szlávi e Zsakó (2008), foi feita uma análise semelhante a que foi realizada no trabalho apresentado na subseção anterior. Porém, o foco deste é o ensino de uma linguagem de programação, portanto os métodos apresentados demostram os passos ideais para transmitir os conceitos da linguagem proposta.
+No trabalho desenvolvido por Papp-varga, Szlávi e Zsakó (2008), foi feita uma análise semelhante à que foi realizada no trabalho apresentado na subseção anterior. Porém, o foco deste é o ensino de uma linguagem de programação, portanto os métodos apresentados demostram os passos ideais para transmitir os conceitos da linguagem proposta.
 
 \nocite{newapproach} 
-Radošević, Orehovački e Lovrenčić (2009), se propõem em criar uma ferramenta que facilite o aprendizado de linguagens de programação básicas, como C++, ao invés da utilização de\sigla{IDE}{Integrated Development Environment}(do inglês, \textit{Integrated Development Environment}). A finalidade desta ferramenta é ajudar os estudantes em não cometer erros que são comuns a quem está iniciando. Além disso, oferecer uma forma mais simples do professor auxiliar seus alunos.
+Radošević, Orehovački e Lovrenčić (2009), propõem a criação de uma ferramenta que facilite o aprendizado de linguagens de programação básicas, como C++, ao invés da utilização de\sigla{IDE}{Integrated Development Environment}(do inglês, \textit{Integrated Development Environment}). A finalidade desta ferramenta é ajudar os estudantes em não cometer erros que são comuns a quem está iniciando e, além disso, permitir ao professor auxiliar seus alunos de forma mais simples.
 
 \nocite{Vihavainen:2011:EAM:1953163.1953196}
-Vihavainen, Paksula e Luukkainen (2011), discutem como ensinar o básico de programação para quem está começando. O autor propõe um modelo de ensino e faz a aplicação deste em uma turma de um curso de ciência da computação. O modelo discutido tem três estágios, no primeiro
-o professor oferece aos estudantes um modelo conceitual de um problema e como o mesmo foi resolvido. A todo momento de explicação o professor fala todos os seus pensamentos e explica o motivo de ter feito determinada decisão, deixando os alunos a acompanharem toda a sua linha de raciocínio. Na segunda etapa, o estudante é exposto a um problema que será resolvido com a orientação de um instrutor que não entrega diretamente a resposta, mas sim sugestões que façam os alunos serem capazes de descobrir as respostas para suas próprias perguntas. A última etapa é quando os alunos conseguem resolver as tarefas sozinhos e não precisam mais do auxilio de um instrutor. Ao final do trabalho é feito um comparativo entre uma turma que utilizou da metodologia proposta e uma que não usou, e os resultados foram positivos, mostrando que a quantidade de evasão e reprovação foram reduzidos.
+Vihavainen, Paksula e Luukkainen (2011), discutem como ensinar o básico de programação para quem está começando. O autor propõe um modelo de ensino e faz a aplicação deste em uma turma de um curso de ciência da computação. O modelo discutido tem três estágios. No primeiro o professor oferece aos estudantes um modelo conceitual de um problema e como o mesmo foi resolvido. A todo momento de explicação o professor verbaliza os seus pensamentos e explica o motivo de ter feito determinada decisão, deixando os alunos acompanharem toda sua linha de raciocínio. Na segunda etapa, o estudante é exposto a um problema que será resolvido com a orientação de um instrutor que não entrega diretamente a resposta, mas sim sugestões que permitam os alunos serem capazes de descobrir as respostas para suas próprias perguntas. A última etapa é quando os alunos conseguem resolver as tarefas sozinhos e não precisam mais do auxilio de um instrutor. Ao final do trabalho é feito um comparativo entre uma turma que utilizou a metodologia proposta e uma que não usou, e os resultados foram positivos, mostrando que a quantidade de evasão e reprovação foram reduzidos.
 
-Apesar de existirem diversos trabalhos que tratam sobre o ensino de algoritmos e programação, todos os encontrados têm um foco para um nível básico de conhecimento, levando em conta alunos que estão iniciando nesta área, portanto, não será aplicado nenhum deste diretamente. No capítulo \ref{chap:metodo} será discutido a metodologia elaborada para a construção do trabalho.
+Apesar de existirem diversos trabalhos que tratam sobre o ensino de algoritmos e programação, todos os encontrados têm um foco para um nível básico de conhecimento, levando em conta alunos que estão iniciando nesta área. Portanto, não será aplicado nenhum deste diretamente. No capítulo \ref{chap:metodo} será discutida a metodologia elaborada para a construção do trabalho.
  
 
 

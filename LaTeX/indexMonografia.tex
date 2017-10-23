@@ -108,13 +108,19 @@
 %}
 
 
+\usepackage{enumitem}
+\setlist{
+	listparindent=\parindent,
+	parsep=0pt,
+}
 
 \graphicspath{{./figuras/}} % Diretório padrão de figuras.
 \input{pretextuais/capa} % Elementos da capa
 \begin{document}	
 	% Numeração de algoritmos e equações
 	\renewcommand{\thelstlisting}{\arabic{lstlisting}}
-	\renewcommand{\theequation}{\arabic{equation}}		
+	\renewcommand{\theequation}{\arabic{equation}}	
+
 	
 	
     \pagestyle{empty}
