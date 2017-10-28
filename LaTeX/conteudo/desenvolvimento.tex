@@ -9,7 +9,6 @@ Esta seção irá apresentar as técnicas selecionadas de otimização para prog
 \begin{itemize}[leftmargin=-.001in]
 \item \textbf{Problema:}
  São dados diversos itens, onde cada um possui um peso e valor associado. Deseja-se colocar alguns em uma mochila\footnote{http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/} com a finalidade de maximizar o valor dos que foram selecionados. Porém, a mochila possui uma capacidade máxima de peso. Além disso, nenhum item pode ser fracionado.
- \\
 \item \textbf{Solução ingênua:} 
 \begin{equation}
 dp[i][j] = 
@@ -48,7 +47,7 @@ dp[\text{\textasciitilde}i\&1][j] &\text{se } peso[i-1] > j
 {\textit{Sugere-se ao leitor tentar utilizar essa técnica na resolução do Fibonacci, que foi} \\\textit{explicado na seção \ref{sec:pd}}. };
 \\
 \item \textbf{Benefícios:} 
-A equação \ref{eq:knapsackmemorialinear} ilustra como reduzir a memória. Os valores que serão utilizados nas linhas da tabela de programação dinâmica serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade de espacial de $O(capacidade)$. Uma maneira simples de alternar entre par e ímpar é utilizar operações binárias. Para verificar se um número é ímpar, basta fazer o \textit{AND} entre o número desejado e o número 1, assim o valor retornado será 1 se for ímpar e 0 se for par. Agora para saber a paridade da linha anterior, basta inverter a paridade da linha atual, para isto pode-se usar o operador \text{\textasciitilde}, que é responsável por inverter todos os bits de um número. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
+A equação \ref{eq:knapsackmemorialinear} ilustra como reduzir a memória. Os valores que serão utilizados nas linhas da tabela de programação dinâmica serão sempre 0 ou 1, assim o total de memória necessária é de $2*capacidade$, deixando com uma complexidade espacial de $O(capacidade)$. Uma maneira simples de alternar entre par e ímpar é utilizar operações binárias. Para verificar se um número é ímpar, basta fazer o \textit{AND} entre o número desejado e o número 1, assim o valor retornado será 1 se for ímpar e 0 se for par. Agora para saber a paridade da linha anterior, basta inverter a paridade da linha atual, para isto pode-se usar o operador \text{\textasciitilde}, que é responsável por inverter todos os bits de um número. A resposta para o problema da mochila utilizando esta relação estará em $dp[n\&1][capacidade]$.
 
 
 \item \textbf{Código final:} 
@@ -103,13 +102,13 @@ max(dp[j] + 1)_{0 \leq j < i} &\text{se } i \neq 0 \text{ e } v[j] \leq v[i]
 \label{eq:lisQuadrado}
 \end{equation}
 
-A equação \ref{eq:lisQuadrado}, resolve o problema da LIS, com a complexidade $O(n^2)$ de tempo e $O(n)$ de memória. Nesta solução $dp[i]$ representa qual a maior LIS que pode ser formada onde o último elemento é exatamente o índice $i$. Para calcular cada estado $i$ é selecionado um estado $j$ que já tenha sido calculado e possui maior valor. Além disso o valor do elemento $j$ tem que ser menor ou igual que o elemento $i$. Isto significa que a LIS que termina em $i$ é uma junção da LIS terminada em $j$, adicionado o elemento $i$ ao final dela. Após calcular todos os estados utilizando a recorrência, basta percorrer o $array$ $dp$ e obter seu maior valor.
+A equação \ref{eq:lisQuadrado}, resolve o problema da LIS, com a complexidade $O(n^2)$ de tempo e $O(n)$ de memória. Nesta solução, $dp[i]$ representa qual a maior LIS que pode ser formada onde o último elemento é exatamente o índice $i$. Para calcular cada estado $i$ é selecionado um estado $j$ que já tenha sido calculado e possui maior valor. Além disso, o valor do elemento $j$ tem que ser menor ou igual que o elemento $i$. Isto significa que a LIS que termina em $i$ é uma junção da LIS terminada em $j$, adicionado o elemento $i$ ao final dela. Após calcular todos os estados utilizando a recorrência, basta percorrer o $array$ $dp$ e obter seu maior valor.
 
 \item \textbf{Análise de particularidades:} É notório que quando está sendo calculada a $dp[i]$, ou seja, a maior LIS que termina no $i$-ésimo índice, estão sendo percorridos todos elementos do $array$ que estão à esquerda e que possuem um valor menor ou igual que o elemento atual. Em outras palavras, queremos o maior elemento da $dp$ cujo valor esteja no intervalo $[0..v[i]]$.
 \\
 
 \tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
-{\textit{Sugere-se ao leitor pensar uma maneira mais eficiente de encontrar o maior elemento} \\\textit{ do array}. };
+{\textit{Sugere-se ao leitor pensar uma maneira mais eficiente de encontrar o maior} \\\textit{elemento do array}. };
 \\
 
 \item \textbf{Estruturas de dados RMQ:}
@@ -157,9 +156,9 @@ int lis(int n){
 \item \textbf{Problema:}
 São dados $n$ objetos, cada um com um valor associado $x_{1}, x_{2}, x_{3}, ..., x_{n}$, onde $x_{i} > 0$ $_{\forall{i}}$ e é necessário dividi-los em $k$ grupos consecutivos, de forma que esta divisão seja feita com o menor custo possível. O custo para criação de um grupo é igual a soma dos valores de todos elementos do grupo multiplicado pela quantidade de objetos.
 
-Para exemplificar, supondo que são quatro objetos e seus valores são {1, 2, 3, 4}, é necessário dividi-los em dois grupos. Uma divisão possível seria colocar os objetos com valores {1, 2, 3} no primeiro grupo o que resultaria em um custo de 18, ou seja, a soma deles que é igual a 6, multiplicado pela quantidade de elementos, 3. Por fim, o elemento 4 ficaria no segundo grupo, tendo como custo o valor 4. Portanto para esta configuração o custo total é a soma dos dois grupos, o que gera um valor de $18+4=22$. Analisando um pouco melhor este exemplo é fácil notar que esta configuração não é a melhor possível. A solução ótima seria deixar os objetos com valores 1 e 2 no primeiro grupo e os demais elementos no segundo grupo, gerando um custo total de 20.
+Para exemplificar, supondo que são quatro objetos e seus valores são {1, 2, 3 e 4}, é necessário dividi-los em dois grupos. Uma divisão possível seria colocar os objetos com valores {1, 2, 3} no primeiro grupo o que resultaria em um custo de 18, ou seja, a soma deles que é igual a 6, multiplicado pela quantidade de elementos, 3. Por fim, o elemento 4 ficaria no segundo grupo, tendo como custo o valor 4. Portanto para esta configuração o custo total é a soma dos dois grupos, o que gera um valor de $18+4=22$. Analisando um pouco melhor este exemplo é fácil notar que esta configuração não é a melhor possível. A solução ótima seria deixar os objetos com valores 1 e 2 no primeiro grupo e os demais elementos no segundo grupo, gerando um custo total de 20.
 
-\item \textbf{Solução ingênua:} Para resolver este problema, o primeiro passo pode ser calcular uma matriz $C[i][j]$, que corresponde ao custo total  para agrupar todos os elementos do índice $i$ até o índice $j$. O tempo total para calcular a matriz poderá ser de ordem quadrática.
+\item \textbf{Solução ingênua:} Para resolver este problema, o primeiro passo é calcular uma matriz $C[i][j]$, que corresponde ao custo total  para agrupar todos os elementos do índice $i$ até o índice $j$. O tempo total para calcular a matriz poderá ser de ordem quadrática.
 \\
 
 \tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
@@ -181,7 +180,7 @@ min_{l < j}(dp[i-1][l] + C[l+1][j]) &\text{se } i > 1
 \item \textbf{Análise de particularidades:} 
 Se for definida uma matriz $opt[i][j]$ que representa qual é o $l$ ótimo para realizar a divisão da $dp[i][j]$, ou seja, o ponto ótimo que minimiza o valor daquele estado, é possível notar que para qualquer $i$ e $j$, $opt[i][j] \leq opt[i][j+1]$. Portanto, $j$ é monotônico\footnote{https://en.wikipedia.org/wiki/Monotonic\_function} para um $i$ fixo. Isto é verdade pois ao inserir um novo objeto em um grupo o valor deste só poderá aumentar, devido a formulação da função de custo. Assim, um conjunto com $x+1$ elementos não poderá ter um ponto ótimo de divisão menor do que este mesmo conjunto com $x$ elementos.
 
-\item \textbf{\textit{Divide and Conquer Optimization}:} Devido a monotonicidade de $opt$, pode-se melhorar a complexidade da solução proposta pois, como observado, para calcular o estado ($i$, $j+1$), não é necessário testar valores de $l$ que são menores do que $opt[i][j]$, apenas valores que são maiores ou iguais a $opt[i][j]$. Para a implementação desta técnica podemos recorrer à divisão e conquista\footnote{https://pt.wikipedia.org/wiki/Divisão\_e\_conquista}, onde pode-se criar uma função recursiva. Para um $i$ fixo, é aplicada a divisão e conquista no $j$, sendo mantido o intervalo do $j$ e o intervalo válido de $l$, que representa o ponto ótimo.
+\item \textbf{\textit{Divide and Conquer Optimization}:} Devido a monotonicidade de $opt$, pode-se melhorar a complexidade da solução proposta, pois, como observado, para calcular o estado ($i$, $j+1$), não é necessário testar valores de $l$ que são menores do que $opt[i][j]$, apenas valores que são maiores ou iguais a $opt[i][j]$. Para a implementação desta técnica podemos recorrer à divisão e conquista\footnote{https://pt.wikipedia.org/wiki/Divisão\_e\_conquista}, onde pode-se criar uma função recursiva. Para um $i$ fixo, é aplicada a divisão e conquista no $j$, sendo mantido o intervalo do $j$ e o intervalo válido de $l$, que representa o ponto ótimo.
 
 \item \textbf{Benefícios:} Ao calcular o valor e o ponto ótimo $x$ para um estado $j$, a divisão em conquista se responsabilizará por chamar a recursão para resolver o estado $j-1$ com o intervalo de $l$ variando de $1..x$ e a recursão para o estado $j+1$ com o $l$ entre $x..n$. Assim, é perceptível que o intervalo de busca do ponto ótimo que no início era $0..n$, foi dividido pela metade, e este é exatamente o pior caso, quando o ponto ótimo está exatamente no meio. Portanto, para calcular um estado $j$ para um $i$ fixo, a complexidade é $O(n*logn)$, bem menor do que a solução ingênua que gastava $O(n^2)$ para cada $i$. Sendo assim, a complexidade final ao aplicar esta técnica neste problema fica $O(k*n*logn)$.
 \item \textbf{Código final:} A seguir é apresentado um código que resolve este problema. Para obter a solução basta chamar a função $divideAndConquer()$, passando como parâmetro o total de elementos e a quantidade de grupos desejados.
@@ -239,13 +238,13 @@ int divideAndConquer(int n, int k){
 \begin{itemize}[leftmargin=-.001in]
 \item \textbf{Problema:}
 Uma \textit{string} é dada e deseja-se realizar alguns cortes nela. A cada corte feito, ela será dividida em duas partes e haverá um custo associado para fazer tal operação, que é igual exatamente ao tamanho original antes de efetuar o corte. Imaginemos a \textit{string} \enquote{knuthoptimization} que possui $17$ caracteres e é preciso realizar os cortes nos índices 2, 6 e 8, levando em consideração que a \textit{string} está indexada começando em $1$.
-O valor total para realizar todos os cortes, está diretamente relacionado à ordem escolhida para efetuar as divisões. As tabelas \ref{tab:knuthCorte} e \ref{tab:knuthCorte2} mostram os custos associados ao realizar os cortes de duas maneiras distintas. Na tabela \ref{tab:knuthCorte} os cortes foram feitos da esquerda para a direita, enquanto a tabela \ref{tab:knuthCorte2} mostra como ficaria a resposta os cortes fossem feitos da direita para a esquerda.
+O valor total para realizar todos os cortes, está diretamente relacionado à ordem escolhida para efetuar as divisões. As tabelas \ref{tab:knuthCorte} e \ref{tab:knuthCorte2} mostram os custos associados ao realizar os cortes de duas maneiras distintas. Na tabela \ref{tab:knuthCorte} os cortes foram feitos da esquerda para a direita, enquanto a tabela \ref{tab:knuthCorte2} mostra como ficaria a resposta se os cortes fossem feitos da direita para a esquerda.
 
 \begin{table}[H]
 	\centering
 	\caption[Problema Knuth realizando cortes da esquerda para a direita]{Problema Knuth realizando cortes da esquerda para a direita}
 	\label{tab:knuthCorte}
-	\begin{tabular}{p{3cm}|p{4cm}|p{3cm}}
+	\begin{tabular}{p{3cm}p{4cm}p{3cm}}
 		\hline \SPACE
 		\textbf{Corte} & \textbf{\textit{String}} & \textbf{Custo} \\  \hline \SPACE
 		- & knuthoptimization    &  0\\ \hline \SPACE
@@ -261,7 +260,7 @@ O valor total para realizar todos os cortes, está diretamente relacionado à or
 	\centering
 	\caption[Problema Knuth realizando cortes da direita para a esquerda]{Problema Knuth realizando cortes da direita para a esquerda}
 	\label{tab:knuthCorte2}
-	\begin{tabular}{p{3cm}|p{4cm}|p{3cm}}
+	\begin{tabular}{p{3cm}p{4cm}p{3cm}}
 		\hline \SPACE
 		\textbf{Corte} & \textbf{\textit{String}} & \textbf{Custo} \\  \hline \SPACE
 		- & knuthoptimization    &  0\\ \hline \SPACE
@@ -280,7 +279,7 @@ Ao analisar as tabelas, fica evidente que a ordem do corte fará com que o custo
 {\textit{Para melhor entendimento, é sugerido ao leitor encontrar o menor custo para} \\\textit{o exemplo proposto.}};
 \\
 
-\item \textbf{Solução ingênua:} Para resolução deste problema, a primeira coisa importante a se notar é que o tamanho da \textit{string} não é tão importante. O mais relevante é onde os cortes devem ser realizados. Assim, a complexidade das soluções estará ligadas à quantidade \textit{k} de cortes.
+\item \textbf{Solução ingênua:} Para resolução deste problema, a primeira coisa importante a se notar é que o tamanho da \textit{string} não é tão importante. O mais relevante é onde os cortes devem ser realizados. Assim, as complexidades das soluções estarão ligadas à quantidade \textit{k} de cortes.
 
 Sendo o \textit{array} $v_{1}, v_{2}, ..., v_{k}$ representando as posições de cada divisão, onde $v_{1} < v_{2} < ... < v_{k}$, pode ser pensado em uma solução com programação dinâmica que utilize dois ponteiros, $i$ e $j$, que representam quais posições estão sendo analisadas no momento. Para solucionar cada estado basta escolher uma posição $x$ onde $i < x < j$, que minimize o custo.
 
@@ -294,7 +293,7 @@ min_{i < x < j}(dp[i][x] + dp[x][j] + v[j] - v[i]) &\text{se } j-i > 1
 \end{equation}
 
 A equação \ref{eq:knuthBruto} apresenta uma possível solução para o problema, onde custo para realizar um corte está representado como sendo $v[j]-v[i]$, ou seja, o tamanho da \textit{string} que está sendo considerada. Porém, através da definição do problema, é sabido que para realizar o primeiro corte o custo será igual ao tamanho original da \textit{string}, mas esta solução não está tratando esse caso. Uma solução simples é inserir dois elementos extras no \textit{array} de cortes, que irão representar o tamanho completo. Após essa modificação, este terá o formato $v_{0}, v_{1}, v_{2}, ..., v_{k}, v_{k+1}$, onde $v_{0}$ tem o valor $0$ e $v_{k+1}$ possui o tamanho inteiro da \textit{string}. Com estas modificações o algoritmo proposto irá funcionar e a resposta estará em $dp[0][k]$.
-Para solucionar cada estado $i$, $j$ da matriz, é necessário iterar por todos elementos que estão neste intervalo para encontrar o melhor candidato à resposta. Por conta disso a complexidade final será $O(k^3)$.
+Para solucionar cada estado $(i, j)$ da matriz, é necessário iterar por todos elementos que estão neste intervalo para encontrar o melhor candidato à resposta. Por conta disso a complexidade final será $O(k^3)$.
 
 \item \textbf{Análise de particularidades:}
 Se for definida uma função de custo $C[i][j]$ que representa o valor para cortar um \textit{string} estando nos índices $i$ e $j$ do \textit{array} $v$, esta pode ser interpretada como sendo $C[i][j] = v[j]-v[i]$. É possível notar que o custo é monotônico, respeitando a equação \ref{eq:monotonicidadeKnuth}.
@@ -370,7 +369,7 @@ int knuthOptimization(int n, int k){
 \section{\textit{Convex Hull Trick}}
 \begin{itemize}[leftmargin=-.001in]
 \item \textbf{Problema:}
-Uma estrada está sendo construída e é necessário cobrir $n$ pontos da mesma. O custo para se cobrir um pedaço da estrada que vai do ponto $x$ até o ponto $y$, é definido como sendo $(x-y)^2 + c$, sendo $c$ uma constante qualquer. Para exemplificar, vamos supor o \textit{array} $v = \{1, 3, 8, 10\}$, que representa os pontos que precisam de cobertura, além disso, o valor da constante $c$ é 5. Portanto, uma solução possível seria realizar a cobertura do ponto 1 até o 8, com o custo de $(1-8)^2 + 5 = 54$ e uma cobertura única no ponto 10, totalizando $(10-10)^2 + 5 = 5$. Para tal configuração, o valor total para cobrir os 4 pontos seria de 59. O objetivo deste problema é encontrar o custo mínimo para realizar a cobertura.
+Uma estrada está sendo construída e é necessário cobrir $n$ pontos da mesma. O custo para se cobrir um pedaço da estrada que vai do ponto $x$ até o ponto $y$, é definido como $(x-y)^2 + c$, sendo $c$ uma constante qualquer. Para exemplificar, vamos supor o \textit{array} $v = \{1, 3, 8, 10\}$, que representa os pontos que precisam de cobertura, além disso, o valor da constante $c$ é 5. Portanto, uma solução possível seria realizar a cobertura do ponto 1 até o 8, com o custo de $(1-8)^2 + 5 = 54$ e uma cobertura única no ponto 10, totalizando $(10-10)^2 + 5 = 5$. Para tal configuração, o valor total para cobrir os 4 pontos seria de 59. O objetivo deste problema é encontrar o custo mínimo para realizar a cobertura.
 \\
 
 \tikz[baseline=-4pt,align=left]\node[draw,minimum width=12.5cm,minimum height=4ex]
@@ -389,7 +388,7 @@ min_{1 \leq j \leq i}(dp[j-1] + (v[i] - v[j])^2 + c) &\text{se } i \neq 0
 \label{eq:chtBruto}
 \end{equation}
 
-Para o cálculo de cada estado $i$ da tabela, é necessário percorrer todos os índices que estão a sua direita, com a finalidade de escolher algum ponto onde seria colocado o início da cobertura. Devido a isto, a complexidade de cada estado seria $O(n)$ e a complexidade para o cálculo de todos os $n$ estados seria $O(n^2)$. A solução para o problema estará em $dp[n]$. 
+Para o cálculo de cada estado $i$ da tabela, é necessário percorrer todos os índices que estão a sua esquerda, com a finalidade de escolher algum ponto onde seria colocado o início da cobertura. Devido a isto, a complexidade de cada estado seria $O(n)$ e a complexidade para o cálculo de todos os $n$ estados seria $O(n^2)$. A solução para o problema estará em $dp[n]$. 
 
 \item \textbf{Análise de particularidades:}
 Através do código ingênuo elaborado, pode-se notar que um dos motivos da solução não ficar tão rápida, é o fato de que, para resolver cada estado é necessário percorrer todos os outros que possuem um índice menor. Porém, ao expandir a equação de custo de cada estado, algumas propriedades importantes podem ser notadas. Sua expansão tem a seguinte forma:
@@ -422,7 +421,7 @@ Partindo do princípio que o conjunto de retas está devidamente ordenado e é n
 \begin{itemize}
 \item A nova reta não é melhor que nenhuma outra que já estava presente, sendo assim, não há necessidade de incluir a mesma no conjunto; 
 
-\item A nova reta é melhor do que algumas outras a partir de algum de valor de $x$;
+\item A nova reta é melhor do que algumas outras a partir de algum valor de $x$;
 
 \item A nova reta é melhor que alguma reta em todos os pontos onde esta era ótima, portanto, não é necessário mais manter aquela reta.
 \end{itemize}
@@ -433,7 +432,7 @@ Para determinar o momento em que uma reta não é mais relevante e precisa ser r
 
 Esta técnica possui algumas variações e pode-se destacar três delas:
 
-\textit{\textbf{Convex Hull Trick 1:}}  Nesta versão, as consultas realizadas são feitas de maneira crescente, ou seja, $x_{1}, x_{2}, ..., x_{n}$, portanto, pode ser mantido um ponteiro $p_{i}$, que informa em qual reta estava a resposta para a consulta $x_{i}$. Assim, quando for necessário descobrir a resposta para a consulta $x_{i+1}$, só é necessário verificar as retas a partir do $p_{i} + 1$. Além disso, todas as retas serão inseridas de maneira ordenada. Isso faz com que todas as consultas sejam respondidas em $O(q + n)$, onde $q$ é o número de consultas e $n$ é o total de retas. Isso se deve ao fato de que cada reta será avaliada apenas uma vez. No momento que para alguma consulta esta não for a melhor, é impossível em algum momento ela se tornar ótima.
+\textit{\textbf{Convex Hull Trick 1:}}  Nesta versão, as consultas realizadas são feitas de maneira crescente, ou seja, $x_{1} \leq x_{2} \leq ... \leq x_{n}$, portanto, pode ser mantido um ponteiro $p_{i}$, que informa em qual reta estava a resposta para a consulta $x_{i}$. Assim, quando for necessário descobrir a resposta para a consulta $x_{i+1}$, só é necessário verificar as retas a partir do $p_{i} + 1$. Pois, no momento que para alguma consulta uma reta não for a melhor, é impossível ela se tornar ótima em algum outro momento. Além disso, todas as retas serão inseridas de maneira ordenada. Isso faz com que todas as consultas sejam respondidas em $O(q + n)$, onde $q$ é o número de consultas e $n$ é o total de retas. Isso se deve ao fato de que cada reta será avaliada apenas uma vez.
 
 \textit{\textbf{Convex Hull Trick 2:}} Esta variação é similar à primeira, porém, as consultas não estão ordenadas. Assim, se faz necessário o uso da busca binária, deixando a complexidade em $O(q*log n)$.
 
@@ -446,7 +445,7 @@ Esta técnica possui algumas variações e pode-se destacar três delas:
 
 
 \item \textbf{Benefícios:}
-Como visto na etapa de análise de particularidades, as funções de custo possuem a forma $f(x) = ax + b$, logo podem ser descritas como uma reta, permitindo a aplicação desta técnica. Como pode ser notado, para resolver o estado $i$, só as retas menores que $i$ são importantes. Assim, pode ser inserida a reta relacionada a este estado no momento em que ele for resolvido. Devido a solução ingênua elaborada e a ordenação do \textit{array} $v$, é possível ver que as retas inseridas e as consultas realizadas serão feitas de maneira ordenada. Portanto, pode ser utilizada a variação 1 do \textit{Convex Hull Trick}. Ao aplicar a otimização, a complexidade será reduzida para $O(n + n) = O(n)$.
+Como visto na etapa de análise de particularidades, as funções de custo possuem a forma $f(x) = ax + b$, logo podem ser descritas como retas, permitindo a aplicação desta técnica. Como pode ser notado, para resolver o estado $i$, só as retas menores que $i$ são importantes. Assim, pode ser inserida a reta relacionada a este estado no momento em que ele for resolvido. Devido a solução ingênua elaborada e a ordenação do \textit{array} $v$, é possível ver que as retas inseridas e as consultas realizadas serão feitas de maneira ordenada. Portanto, pode ser utilizada a variação 1 do \textit{Convex Hull Trick}. Ao aplicar a otimização, a complexidade será reduzida para $O(n + n) = O(n)$.
 \item \textbf{Código final:}
 O algoritmo a seguir apresenta a implementação da solução para o problema. Para obter a resposta basta preencher o \textit{array v} com as posições que necessitam de cobertura. Este deverá estar com índices entre $1...n$. Ao chamar a função $cht()$, passando como parâmetro a quantidade de elementos e a constante, será devolvido o custo mínimo para realizar a cobertura de todos os pontos.
 \\
@@ -464,7 +463,7 @@ int tam, ponteiro;
 
 int quadrado(int x){ return x*x; }
 
-void adicionarLinha(int a, int b){
+void adicionarReta(int a, int b){
 	while(tam >= 2 && 
 			(B[tam-2] - B[tam-1]) * (a-A[tam-1]) >=
 			 (B[tam-1]-b) * (A[tam-1]-A[tam-2]))
@@ -488,11 +487,11 @@ int cht(int n, int c){
 	
 	// Caso base
 	dp[0] = 0;
-	adicionarLinha(-2*v[1], quadrado(v[1]));
+	adicionarReta(-2*v[1], quadrado(v[1]));
 	for(int i = 1; i <= n; i++){
 		dp[i] = consultar(v[i]) + quadrado(v[i]) + c;
 		if(i < n)
-			adicionarLinha(-2*v[i+1], quadrado(v[i+1])+dp[i]);
+			adicionarReta(-2*v[i+1], quadrado(v[i+1])+dp[i]);
 	}
 	return dp[n];
 }

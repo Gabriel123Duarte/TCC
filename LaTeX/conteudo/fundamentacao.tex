@@ -2,7 +2,7 @@
 \chapter{Fundamentação Teórica}
 \label{chap:fundamentacao}
 
-Neste capítulo, são apresentados os conceitos que servem de insumo para a elaboração das etapas seguintes desse trabalho. Na seção \ref{sec:complexidade} são demostrados alguns conceitos necessários para identificar e classificar a complexidade de um algoritmo. A seção \ref{sec:pd} explica o básico sobre programação dinâmica, seus principais termos e o conceito de otimização, que servirá de base para a elaboração dos capítulos seguintes. Por fim, no capítulo \ref{sec:ensino} é feita uma análise de alguns trabalhos relacionados com o ensino de programação.
+Neste capítulo, são apresentados os conceitos que servem de insumo para a elaboração das etapas seguintes desse trabalho. Na seção \ref{sec:complexidade} são demostrados alguns conceitos necessários para identificar e classificar a complexidade de um algoritmo. A seção \ref{sec:pd} explica o básico sobre programação dinâmica, seus principais termos e o conceito de otimização, que servirá de base para a elaboração dos capítulos seguintes. Por fim, na seção \ref{sec:ensino} é feita uma análise de alguns trabalhos relacionados com o ensino de programação.
 
 
 
@@ -17,7 +17,7 @@ Quando é feita a análise de complexidade, é possível identificar a qual clas
 	\centering
 	\caption[Principais classes de funções para analisar algoritmos]{Principais classes de funções para analisar algoritmos}
 	\label{tab:classes}
-	\begin{tabular}{c|c}
+	\begin{tabular}{cc}
 		\hline \SPACE
 		\textbf{Notação} & \textbf{Exemplo de algoritmos} \\ \hline \SPACE
 		$O(1)$ & Determinar se um número é par ou ímpar \\ \hline \SPACE
@@ -74,6 +74,8 @@ fib(i - 1) + fib(i - 2) &\text{se } i > {1}.
 \label{eq:fibrecorrence}
 \end{equation}
 
+Na figura \ref{fig:fib5} é apresentada a árvore de recursão gerada ao utilizar a equação \ref{eq:fibrecorrence} para o cálculo do $fib(5)$. Através dela, é fácil ver que diversos estados estão se repetindo, por exemplo: $fib(2)$ aparece três vezes e sempre que é encontrado ele é divido no $fib(1)$ e $fib(0)$, assim deixando a  complexidade deste algoritmo em $O(2^{N})$. Ao aplicar programação dinâmica neste algoritmo é possível reduzir a complexidade para $O(N)$, pois cada estado será expandido uma única vez.
+
 \begin{figure}[H]
 	\centering
 	\caption[Árvore de recursão do Fibonacci de 5]{Árvore de recursão do Fibonacci de 5}
@@ -82,8 +84,6 @@ fib(i - 1) + fib(i - 2) &\text{se } i > {1}.
 	\label{fig:fib5}
 \end{figure}
 
-
-Na figura \ref{fig:fib5} é apresentada a árvore de recursão gerada ao utilizar a equação \ref{eq:fibrecorrence} para o cálculo do $fib(5)$. Através dela, é fácil ver que diversos estados estão se repetindo, por exemplo: $fib(2)$ aparece três vezes e sempre que é encontrado ele é divido no $fib(1)$ e $fib(0)$, assim deixando a  complexidade deste algoritmo em $O(2^{N})$. Ao aplicar programação dinâmica neste algoritmo é possível reduzir a complexidade para $O(N)$, pois cada estado será expandido uma única vez.
 
 O código a seguir mostra como seria a implementação da função sem a utilização de programação dinâmica.
 \begin{lstlisting}[caption={Implementação Fibonacci sem programação dinâmica},label={lst:fibsimples}]
@@ -125,7 +125,7 @@ A tabela \ref{tab:otimizacoes} ilustra algumas otimizações existentes, que pos
 	\centering
 	\caption[Otimizações de programação dinâmica]{Otimizações de programação dinâmica}
 	\label{tab:otimizacoes}
-	\begin{tabular}{p{4cm} | p{11cm}}
+	\begin{tabular}{p{4cm}  p{11cm}}
 		\hline \SPACE
 		\textbf{Nome/Tipo} & \textbf{Característica} \\ \hline \SPACE
 		Redução de espaço &  Reduz a quantidade de memória necessária quando um estado depende de uma quantidade fixa de outros estados \\ \hline \SPACE
@@ -147,17 +147,18 @@ O ensino de algoritmos, por tratar de assuntos que normalmente não são tão si
 \nocite{methods}
 Szlávi e Zsakó (2003) apresentaram diversas metodologias relacionadas ao ensino de programação. Os autores discutem sobre alguns modelos e exemplificam quando e para qual nível de estudante cada método será mais proveitoso ao ser aplicado. Estes métodos determinam a forma de estruturar o curso que deseja ser ensinado e a maneira de explicar os conteúdos. Os métodos discutidos no trabalho são:
 
+\vspace{-0.1in}
 \begin{itemize}[leftmargin=-.001in]
 \itemsep0em
 \item \textbf{Metodológico, orientado a algoritmos:} Neste há uma divisão bem clara em todas as etapas do processo de programação, desde a estruturação do que será desenvolvido, até a documentação final. Este é recomendado para ser utilizado com estudantes no final do ensino médio ou que estejam se preparando para um trabalho na área de informática.
 \item \textbf{Orientado a dados}: Este método é similar ao anterior, porém com foco nas estruturas de dados, assim, muitas vezes conseguindo evitar os grandes teoremas que normalmente são complexos e necessários para fazer a explicação dessas estruturas, propondo uma forma mais suave de transmitir o conhecimento.
 \item \textbf{Orientado à especificação:} A especificação da forma que o programa deve funcionar é a parte mais significativa, e todos os algoritmos são gerados sistematicamente através de rígidas instruções. Método indicado para estudantes universitários de informática, pois este será bem sucedido se os alunos possuírem um profundo conhecimento matemático.
-\item \textbf{Orientado a problemas:} Este método possui grandes diferenças do outros. Nele toda a etapa de programação é vista como uma única tarefa que não pode ser dividida. Dentre todos os métodos discutidos, este é o único recomendável para todos os tipos de estudantes, pois o foco é desenvolver nos alunos uma forma mais algorítmica de pensar sem estar preocupado com o treinamento profissional.
-\item \textbf{Orientado à linguagem:} Método semelhante ao orientado a problemas, porém o ensino dependente totalmente de uma linguagem de programação e todos os ensinamentos são voltados especificamente para a linguagem adotada. Devido a estes fatores esse método está desatualizado e não é tão útil nos dias atuais.
+\item \textbf{Orientado a problemas:} Este método possui grandes diferenças em relação aos outros. Nele toda a etapa de programação é vista como uma única tarefa que não pode ser dividida. Dentre todos os métodos discutidos, este é o único recomendável para todos os tipos de estudantes, pois o foco é desenvolver nos alunos uma forma mais algorítmica de pensar sem estar preocupado com o treinamento profissional.
+\item \textbf{Orientado à linguagem:} Método semelhante ao orientado a problemas, porém o ensino depende totalmente de uma linguagem de programação e todos os ensinamentos são voltados especificamente para a linguagem adotada. Devido a estes fatores esse método está desatualizado e não é tão útil nos dias atuais.
 \item \textbf{Orientado a instruções:} Semelhante ao orientado a linguagem, porém aqui é definida uma linguagem geral, uma forma de pseudocódigo.
-\item \textbf{Orientado à matemática:} Os problemas a serem resolvidos com esta técnica, são retirados da matemática, onde cada problema individual é relacionado com algum outro utilizando os princípios básicos da matemática. Esta não é uma metodologia eficaz para o ensino de programação, porém o ensino de matemática com o auxílio de programação pode ser útil devido à forma de raciocínio que as duas áreas possuem.
-
+\item \textbf{Orientado à matemática:} Os problemas a serem resolvidos com esta técnica, são retirados da matemática, onde cada problema individualmente é relacionado com algum outro utilizando os princípios básicos da matemática. Esta não é uma metodologia eficaz para o ensino de programação. Porém, o ensino de matemática com o auxílio de programação pode ser útil devido à forma de raciocínio que as duas áreas possuem.
 \end{itemize}
+\vspace{-0.1in}
 
 \nocite{doi:10.1076/csed.13.2.137.14200} 
 No trabalho de Robins e Rountree (2003), uma ampla pesquisa na literatura com o foco na parte educacional do estudo de programação foi feita. Diversos métodos e tópicos foram identificados e analisados para poder ser realizada uma classificação, e assim, auxiliar os professores a identificar em seus alunos características comuns e padrões, que poderão ser contornados com base no que já foi realizado e está documentado na literatura.
